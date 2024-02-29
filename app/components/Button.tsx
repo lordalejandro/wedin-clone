@@ -22,18 +22,18 @@ const Button: React.FC<Props> = ({
     <button
       disabled={disabled}
       onClick={onClick}
-      className={`relative disabled:opacity-70 disabled:cursor-not-allowed rounded-lg hover:opacity-80 transition w-full
-        ${outline ? "bg-white" : "bg-rose-500"}
-        ${outline ? "border-black" : "bg-rose-500"}
-        ${outline ? "text-black" : "text-white"}
-        ${small ? "py-1" : "py-3"}
-        ${small ? "text-sm" : "text-md"}
-        ${small ? "font-light" : "font-semibold"}
-        ${small ? "border-[1px]" : "border-2"}
+      className={`relative disabled:opacity-70 disabled:cursor-not-allowed rounded-full hover:opacity-80 hover transition w-full flex items-center justify-center gap-3
+        ${outline ? "bg-white" : "bg-primaryBackgroundColor"}
+        ${outline ? "border-primaryBackgroundColor border-2" : "bg-primaryBackgroundColor"}
+        ${outline ? "text-primaryTextColor" : "text-white"}
+        ${small ? "py-1.5" : "py-2"}
+        ${small ? "text-md" : "text-md"}
+        ${small ? "font-light" : "font-medium"}
+
       `}
     >
-      {Icon ? <Icon size={22} className="absolute left-4 top-3" /> : null}
       {label}
+      {Icon ? <Icon size={22} /> : null}
     </button>
   );
 };

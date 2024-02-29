@@ -11,11 +11,14 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        primaryTitleColor: '#464646',
+        secondaryTitleColor: '#1C1C1C',
         primaryTextColor: '#1A1A1A',
         secondaryTextColor: '#595959',
         tertiaryTextColor: '#696969',
         primaryBackgroundColor: '#444444',
         secondaryBackgroundColor: '#E7E7E7',
+        borderColor: '#E0E0E0',
       },
     },
   },

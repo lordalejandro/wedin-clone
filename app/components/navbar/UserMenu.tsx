@@ -4,12 +4,11 @@ import useLoginModal from "@/app/hooks/useLoginModal";
 import useOutsideClick from "@/app/hooks/useOutsideClick";
 import useRegisterModal from "@/app/hooks/useRegisterModal";
 import { User } from "@prisma/client";
-import Link from 'next/link';
+import Link from "next/link";
 import { signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useCallback, useRef, useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
-
 
 import Avatar from "../Avatar";
 import MenuItem from "../MenuItem";
@@ -48,26 +47,28 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
 
   return (
     <div className="relative" ref={dropdownRef}>
-
       {currentUser ? (
-        <div className="flex flex-row items-center gap-3">
-        <div
-          className="hidden md:block text-sm py-3 px-4"
-        >
-          {currentUser?.name ? `Hola ${currentUser?.name}` : ""}
-        </div>
-        <div
-          className="p-4 md:py-1 md:px-2 border-[1px] border-neutral-200 flex flex-row items-center gap-3 rounded-full cursor-pointer hover:shadow-md transition"
-          onClick={toggleOpen}
-        >
-          <div className="hidden md:block">
-            <Avatar src={currentUser?.image} />
+        <div className="flex flex-row items-center gap-4">
+          <div className="hidden md:block text-sm">
+            {currentUser?.name ? `Hola ${currentUser?.name}` : ""}
           </div>
-          <IoIosArrowDown size={18} />
+          <div
+            className="p-4 md:py-1 md:px-2 border-[1px] border-neutral-200 flex flex-row items-center gap-3 rounded-full cursor-pointer hover:shadow-md transition"
+            onClick={toggleOpen}
+          >
+            <div className="hidden md:block">
+              <Avatar src={currentUser?.image} />
+            </div>
+            <IoIosArrowDown size={18} />
+          </div>
         </div>
-      </div>
       ) : (
-        <Link href="/signup" className="bg-[#E9E9E9] text-[#333333] py-2 rounded-full px-5 hover:shadow-md transition-all shadow-black">Registrarme</Link>
+        <Link
+          href="/signup"
+          className="bg-primaryBackgroundColor text-white py-2 rounded-full px-5 hover:shadow-lg transition-all shadow-black"
+        >
+          Registrarme
+        </Link>
       )}
 
       {isOpen && (

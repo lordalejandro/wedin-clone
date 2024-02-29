@@ -24,7 +24,7 @@ export default async function RootLayout({
       <body className={inter.className}>
         <Toaster />
         <NavBar currentUser={currentUser} />
-        <div className="p-10">
+        <div className="pt-16">
           {children}
         </div>
       </body>

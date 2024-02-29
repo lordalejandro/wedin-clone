@@ -11,7 +11,7 @@ export default function SingInFacebook() {
           callbackUrl: `${window.location.origin}`,
         })
       }
-      className="bg-secondaryBackgroundColor text-tertiaryTextColor py-1.5 px-6 rounded-lg w-[208px]"
+      className="bg-secondaryBackgroundColor text-tertiaryTextColor py-1.5 px-6 rounded-lg w-[208px] hover:shadow-md shadow-black transition-all"
     >
       Facebook
     </Button>

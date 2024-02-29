@@ -54,7 +54,7 @@ export default function SignInForm() {
 
       <Button
         type="submit"
-        className="bg-primaryBackgroundColor w-full text-white py-2.5 rounded-lg"
+        className="bg-primaryBackgroundColor w-full text-white py-2.5 rounded-lg hover:shadow-lg transition-all shadow-black"
       >
         Registrarme
       </Button>

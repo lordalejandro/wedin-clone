@@ -25,7 +25,7 @@ const SingUpPage = async () => {
   }); */
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen text-black gap-20">
+    <div className="flex flex-col items-center justify-center min-h-screen text-black gap-16 px-10">
       <div>
         <Logo />
       </div>

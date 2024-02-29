@@ -1,6 +1,6 @@
 // withProtectedRoute.js
 import { useEffect } from 'react';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 
 const withProtectedRoute = (WrappedComponent, role) => {
   return (props) => {
