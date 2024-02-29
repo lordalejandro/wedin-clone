@@ -39,7 +39,7 @@ export default function SignInForm() {
   return (
     <form className="flex flex-col gap-4" action={SignInEmail}>
       <div className="grid w-full max-w-sm items-center gap-3">
-        <Label htmlFor="email" className="pl-1 font-normal">
+        <Label htmlFor="email" className="pl-1 text-secondaryTextColor">
           Ingresa tu email
         </Label>
         <Input
@@ -51,9 +51,10 @@ export default function SignInForm() {
           className="border"
         />
       </div>
+
       <Button
         type="submit"
-        className="bg-black w-full text-white py-2.5 rounded-lg"
+        className="bg-primaryBackgroundColor w-full text-white py-2.5 rounded-lg"
       >
         Registrarme
       </Button>

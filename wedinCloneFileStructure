@@ -1,0 +1,81 @@
+.
+├── app
+│   ├── actions
+│   │   └── getCurrentUser.ts
+│   ├── api
+│   │   └── auth
+│   │       └── [...nextauth]
+│   ├── components
+│   │   ├── Avatar.tsx
+│   │   ├── Container.tsx
+│   │   ├── inputs
+│   │   │   └── Input.tsx
+│   │   ├── LogoutButton.tsx
+│   │   ├── MenuItem.tsx
+│   │   ├── modals
+│   │   │   └── Modal.tsx
+│   │   ├── navbar
+│   │   │   ├── Logo.tsx
+│   │   │   ├── Navbar.tsx
+│   │   │   └── UserMenu.tsx
+│   │   ├── providers
+│   │   │   └── ToasterProvider.tsx
+│   │   ├── SignInFacebook.tsx
+│   │   ├── SignInForm.tsx
+│   │   └── SignInGoogle.tsx
+│   ├── coupleDashboard
+│   │   └── page.tsx
+│   ├── createGift
+│   │   └── page.tsx
+│   ├── favicon.ico
+│   ├── globals.css
+│   ├── helpers
+│   │   └── userTypeHelper.ts
+│   ├── hoc
+│   │   └── withProtectedRoute.js
+│   ├── hooks
+│   │   ├── useLoginModal.ts
+│   │   ├── useOutsideClick.ts
+│   │   └── useRegisterModal.ts
+│   ├── inviteeDashboard
+│   │   └── page.tsx
+│   ├── layout.tsx
+│   ├── page.tsx
+│   ├── signup
+│   │   └── page.tsx
+│   └── utils
+│       ├── auth.ts
+│       └── db.ts
+├── components
+│   └── ui
+│       ├── button.tsx
+│       ├── card.tsx
+│       ├── input.tsx
+│       ├── label.tsx
+│       ├── toaster.tsx
+│       ├── toast.tsx
+│       └── use-toast.ts
+├── components.json
+├── lib
+│   └── utils.ts
+├── next.config.js
+├── next.config.mjs
+├── next-env.d.ts
+├── package.json
+├── package-lock.json
+├── postcss.config.js
+├── prisma
+│   └── schema.prisma
+├── public
+│   ├── images
+│   │   ├── avatar.jpg
+│   │   └── wedin.png
+│   ├── next.svg
+│   └── vercel.svg
+├── README.md
+├── tailwind.config.js
+├── tailwind.config.ts
+├── tsconfig.json
+└── wedinCloneFileStructure
+
+24 directories, 54 files
