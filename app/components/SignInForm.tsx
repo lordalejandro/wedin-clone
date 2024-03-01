@@ -1,24 +1,24 @@
-"use client"
+"use client";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 //import { toast } from "@/components/ui/use-toast";
-import { useToast } from "@/components/ui/use-toast"
+import { useToast } from "@/components/ui/use-toast";
 
 import { signIn } from "next-auth/react";
 import { useState } from "react";
 
 export default function SignInForm() {
   const [Email, setEmail] = useState<null | string>(null);
-  const { toast } = useToast()
+  const { toast } = useToast();
 
   async function SignInEmail() {
     const signInResult = await signIn("email", {
-        email: Email,
-        callbackUrl: `${window.location.origin}`,
-        redirect: false,
-    })
+      email: Email,
+      callbackUrl: `${window.location.origin}`,
+      redirect: false,
+    });
 
     if (!signInResult?.ok) {
       return toast({
@@ -27,14 +27,13 @@ export default function SignInForm() {
         variant: "destructive",
       });
     }
-    
+
     return toast({
       title: "Verifica tu email",
-      description: 'Un link de ingreso fue enviado a tu email',
+      description: "Un link de ingreso fue enviado a tu email",
       className: "bg-white",
     });
   }
-
 
   return (
     <form className="flex flex-col gap-4" action={SignInEmail}>

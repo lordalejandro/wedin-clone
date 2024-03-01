@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
+import { getCurrentUser } from "@/app/actions/getCurrentUser";
+import { Toaster } from "@/components/ui/toaster";
+import NavBar from "@/app/components/navbar/Navbar";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { Toaster } from "@/components/ui/toaster";
-import { getCurrentUser } from "./actions/getCurrentUser";
-import NavBar from "./components/navbar/Navbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,9 +24,7 @@ export default async function RootLayout({
       <body className={inter.className}>
         <Toaster />
         <NavBar currentUser={currentUser} />
-        <div className="pt-16">
-          {children}
-        </div>
+        <div className="pt-16">{children}</div>
       </body>
     </html>
   );

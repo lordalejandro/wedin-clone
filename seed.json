@@ -1,0 +1,322 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "Luna de miel"
+    },
+    {
+      "id": 2,
+      "name": "Cultura y arte"
+    },
+    {
+      "id": 3,
+      "name": "Gastronomía"
+    },
+    {
+      "id": 4,
+      "name": "Aventura"
+    },
+    {
+      "id": 5,
+      "name": "Relax"
+    }
+  ],
+  "lists": [
+    {
+      "id": 1,
+      "name": "Luna de miel grande",
+      "description": "Para los que quieran colaborar con un regalo más grande",
+      "isDefault": true,
+      "quantiy": "5",
+      "categoryId:": 1,
+      "totalPrice": "3450"
+    },
+    {
+      "id": 2,
+      "name": "Luna de miel pequeña",
+      "description": "Para los que quieran colaborar con un regalo más pequeño",
+      "isDefault": true,
+      "quantiy": "5",
+      "categoryId:": 1,
+      "totalPrice": "660"
+    },
+    {
+      "id": 3,
+      "name": "Luna de miel mediana",
+      "description": "Para los que quieran colaborar con un regalo mediano",
+      "isDefault": true,
+      "quantiy": "5",
+      "categoryId:": 1,
+      "totalPrice": "1360"
+    },
+    {
+      "id": 4,
+      "name": "Aventuras extremas",
+      "description": "Para los amantes de la adrenalina y experiencias únicas",
+      "isDefault": true,
+      "quantiy": "5",
+      "categoryId:": 4,
+      "totalPrice": "2350"
+    },
+    {
+      "id": 5,
+      "name": "Relax total",
+      "description": "Para disfrutar de tranquilidad y paz en lugares soñados",
+      "isDefault": true,
+      "quantiy": "5",
+      "categoryId:": 5,
+      "totalPrice": "840"
+    },
+    {
+      "id": 6,
+      "name": "Cultura y arte",
+      "isDefault": true,
+      "description": "Para explorar las maravillas culturales y artísticas del destino",
+      "quantiy": "5",
+      "categoryId:": 2,
+      "totalPrice": "580"
+    }
+  ],
+  "gifts": [
+    {
+      "id": 1,
+      "name": "Cena romántica",
+      "description": "Cena romántica en un restaurante de lujo",
+      "isDefault": true,
+      "giftListId": 1,
+      "price": 1000
+    },
+    {
+      "id": 2,
+      "name": "Excursión en kayak",
+      "description": "Aventura en kayak por los ríos más hermosos",
+      "isDefault": true,
+      "giftListId": 4,
+      "price": 300
+    },
+    {
+      "id": 3,
+      "name": "Masajes relajantes",
+      "description": "Sesión de masajes para dos en un spa de lujo",
+      "isDefault": true,
+      "giftListId": 5,
+      "price": 200
+    },
+    {
+      "id": 4,
+      "name": "Visita a museo",
+      "description": "Entradas para un museo emblemático",
+      "isDefault": true,
+      "giftListId": 6,
+      "price": 50
+    },
+    {
+      "id": 5,
+      "name": "Cata de vinos",
+      "description": "Experiencia de cata de vinos en una viña prestigiosa",
+      "isDefault": true,
+      "giftListId": 3,
+      "price": 150
+    },
+    {
+      "id": 6,
+      "name": "Clase de surf",
+      "description": "Clase de surf para dos en una playa icónica",
+      "isDefault": true,
+      "giftListId": 4,
+      "price": 200
+    },
+    {
+      "id": 7,
+      "name": "Paseo en globo",
+      "description": "Paseo en globo aerostático al amanecer",
+      "isDefault": true,
+      "giftListId": 1,
+      "price": 500
+    },
+    {
+      "id": 8,
+      "name": "Tour gastronómico",
+      "description": "Tour gastronómico por la ciudad, probando platos típicos",
+      "isDefault": true,
+      "giftListId": 6,
+      "price": 250
+    },
+    {
+      "id": 9,
+      "name": "Noche de hotel de lujo",
+      "description": "Una noche en hotel de 5 estrellas",
+      "isDefault": true,
+      "giftListId": 1,
+      "price": 800
+    },
+    {
+      "id": 10,
+      "name": "Buceo con tortugas",
+      "description": "Inmersión de buceo en un arrecife de coral",
+      "isDefault": true,
+      "giftListId": 4,
+      "price": 400
+    },
+    {
+      "id": 11,
+      "name": "Concierto privado",
+      "description": "Un pequeño concierto privado de música local",
+      "isDefault": true,
+      "giftListId": 3,
+      "price": 600
+    },
+    {
+      "id": 12,
+      "name": "Picnic gourmet",
+      "description": "Picnic en un parque nacional con productos gourmet",
+      "isDefault": true,
+      "giftListId": 2,
+      "price": 120
+    },
+    {
+      "id": 13,
+      "name": "Paseo a caballo",
+      "description": "Paseo a caballo por paisajes naturales impresionantes",
+      "isDefault": true,
+      "giftListId": 5,
+      "price": 180
+    },
+    {
+      "id": 14,
+      "name": "Tour de street art",
+      "description": "Recorrido guiado por las mejores obras de arte urbano",
+      "isDefault": true,
+      "giftListId": 6,
+      "price": 70
+    },
+    {
+      "id": 15,
+      "name": "Sesión de fotografía",
+      "description": "Sesión fotográfica profesional en locaciones icónicas",
+      "isDefault": true,
+      "giftListId": 2,
+      "price": 250
+    },
+    {
+      "id": 16,
+      "name": "Curso de cocina local",
+      "description": "Curso para aprender a preparar platos típicos del lugar",
+      "isDefault": true,
+      "giftListId": 3,
+      "price": 220
+    },
+    {
+      "id": 17,
+      "name": "Salto en paracaídas",
+      "description": "Salto tándem en paracaídas sobre paisajes espectaculares",
+      "isDefault": true,
+      "giftListId": 4,
+      "price": 600
+    },
+    {
+      "id": 18,
+      "name": "Noche de observación estelar",
+      "description": "Noche de observación de estrellas en un observatorio",
+      "isDefault": true,
+      "giftListId": 5,
+      "price": 160
+    },
+    {
+      "id": 19,
+      "name": "Cena en la playa",
+      "description": "Cena privada en la playa al atardecer",
+      "isDefault": true,
+      "giftListId": 1,
+      "price": 700
+    },
+    {
+      "id": 20,
+      "name": "Excursión de senderismo",
+      "description": "Excursión guiada por senderos naturales con vistas increíbles",
+      "isDefault": true,
+      "giftListId": 2,
+      "price": 100
+    },
+    {
+      "id": 21,
+      "name": "Alquiler de jet ski",
+      "description": "Alquiler de jet ski para un día de aventura en el mar",
+      "isDefault": true,
+      "giftListId": 4,
+      "price": 350
+    },
+    {
+      "id": 22,
+      "name": "Tarde de spa",
+      "description": "Una tarde completa de relajación en un spa de primera",
+      "isDefault": true,
+      "giftListId": 5,
+      "price": 300
+    },
+    {
+      "id": 23,
+      "name": "Visita a jardines botánicos",
+      "description": "Entrada a jardines botánicos con tour guiado",
+      "isDefault": true,
+      "giftListId": 6,
+      "price": 60
+    },
+    {
+      "id": 24,
+      "name": "Espectáculo de luces",
+      "description": "Entradas para un espectacular show de luces en un sitio histórico",
+      "isDefault": true,
+      "giftListId": 3,
+      "price": 90
+    },
+    {
+      "id": 25,
+      "name": "Paseo en bicicleta eléctrica",
+      "description": "Alquiler de bicicleta eléctrica para recorrer la ciudad",
+      "isDefault": true,
+      "giftListId": 2,
+      "price": 80
+    },
+    {
+      "id": 26,
+      "name": "Taller de arte",
+      "description": "Participación en un taller de arte local para crear tu propia obra",
+      "isDefault": true,
+      "giftListId": 6,
+      "price": 150
+    },
+    {
+      "id": 27,
+      "name": "Tour submarino",
+      "description": "Paseo en un submarino para explorar la vida marina",
+      "isDefault": true,
+      "giftListId": 4,
+      "price": 500
+    },
+    {
+      "id": 28,
+      "name": "Degustación de chocolates",
+      "description": "Experiencia de degustación de chocolates artesanales",
+      "isDefault": true,
+      "giftListId": 2,
+      "price": 110
+    },
+    {
+      "id": 29,
+      "name": "Paseo en barco",
+      "description": "Tour privado en barco al atardecer",
+      "isDefault": true,
+      "giftListId": 1,
+      "price": 450
+    },
+    {
+      "id": 30,
+      "name": "Escapada a una isla",
+      "description": "Excursión de un día a una isla cercana con picnic incluido",
+      "isDefault": true,
+      "giftListId": 3,
+      "price": 320
+    }
+  ]
+}

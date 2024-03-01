@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import SingInFacebook from "../components/SignInFacebook";
 import SingInGoogle from "../components/SignInGoogle";
 import SignInForm from "../components/SignInForm";
@@ -32,6 +31,6 @@ const RegisterRight = () => {
       </p>
     </div>
   );
-}
+};
 
-export default RegisterRight
+export default RegisterRight;

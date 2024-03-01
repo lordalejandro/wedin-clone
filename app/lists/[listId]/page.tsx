@@ -1,0 +1,33 @@
+import Container from "@/app/components/Container";
+import { redirect } from "next/navigation";
+import { getCurrentUser } from "@/app/actions/getCurrentUser";
+
+type Props = {
+  params: {
+    listId: string;
+  };
+};
+
+export default async function Home({ params }: Props) {
+  const currentUser = await getCurrentUser();
+
+  // Add logic for when currnetUser is null or does not
+  // have access to the list with the given id redirect to
+  // home page
+  //
+  if (!currentUser) {
+    redirect("/");
+  }
+
+  const { listId } = params;
+
+  console.log(listId);
+
+  return (
+    <Container>
+      <div className="min-h-screen flex flex-col justify-center">
+        list with id {listId}
+      </div>
+    </Container>
+  );
+}

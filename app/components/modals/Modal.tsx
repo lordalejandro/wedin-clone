@@ -1,7 +1,8 @@
 "use client";
 
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { IoMdClose } from "react-icons/io";
+import Button from "../Button";
 
 /* import useOutsideClick from "@/app/hooks/useOutsideClick";
 import Button from "../Button"; */
@@ -106,9 +107,9 @@ const Modal: React.FC<Props> = ({
               <div className="flex flex-row items-center gap-4 w-full">
                 {secondaryAction && secondaryActionLabel ? (
                   <Button
+                    label={secondaryActionLabel}
                     onClick={handleSecondaryAction}
                     outline
-                    label={secondaryActionLabel}
                     disabled={disabled}
                   />
                 ) : null}

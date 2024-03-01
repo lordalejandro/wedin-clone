@@ -15,7 +15,7 @@ enum UserType {
 
 model Account {
   id                String  @id @default(auto()) @map("_id") @db.ObjectId
-  userId            String
+  userId            String  @db.ObjectId
   type              String
   provider          String
   providerAccountId String
@@ -36,7 +36,7 @@ model Account {
 model Session {
   id           String   @id @default(auto()) @map("_id") @db.ObjectId
   sessionToken String   @unique
-  userId       String
+  userId       String   @db.ObjectId
   expires      DateTime
   user         User     @relation(fields: [userId], references: [id])
 
@@ -44,26 +44,15 @@ model Session {
 }
 
 model User {
-  id             String    @id @default(auto()) @map("_id") @db.ObjectId
-  name           String?
-  email          String?   @unique
-  emailVerified  DateTime?
-  image          String?
-  user_types     UserType  @default(COUPLE)
-  accounts       Account[]
-  sessions       Session[]
-  weddingInvites Invitee[]
-}
-
-model Invitee {
-  id        String   @id @default(auto()) @map("_id") @db.ObjectId
-  weddingId String   @db.ObjectId
-  inviteeId String   @db.ObjectId
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  invitee User    @relation(fields: [inviteeId], references: [id])
-  wedding Wedding @relation(fields: [weddingId], references: [id])
+  id            String    @id @default(auto()) @map("_id") @db.ObjectId
+  name          String?
+  email         String?   @unique
+  emailVerified DateTime?
+  image         String?
+  url           String?
+  user_types    UserType  @default(COUPLE)
+  accounts      Account[]
+  sessions      Session[]
 }
 
 model Wedding {
@@ -71,7 +60,6 @@ model Wedding {
   date      DateTime
   location  String
   wishList  WishList[]
-  invitees  Invitee[]
   createdAt DateTime   @default(now())
   updatedAt DateTime   @updatedAt
 }
@@ -85,28 +73,54 @@ model WishList {
   updatedAt   DateTime @updatedAt
 
   wedding Wedding @relation(fields: [weddingId], references: [id])
-  Gift    Gift[]
+  gifts   Gift[]
 }
 
 model Gift {
   id          String   @id @default(auto()) @map("_id") @db.ObjectId
   name        String
   description String
+  giftListId  String   @db.ObjectId
+  isDefault   Boolean  @default(false)
+  categoryId  String   @db.ObjectId
   price       Float
-  images      Image[]
+  category    String
   wishListId  String   @db.ObjectId
-  wishList    WishList @relation(fields: [wishListId], references: [id])
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
+
+  wishList WishList @relation(fields: [wishListId], references: [id])
+  giftlist GiftList @relation(fields: [giftListId], references: [id])
+  images   Image[]
+}
+
+model GiftList {
+  id          String  @id @default(auto()) @map("_id") @db.ObjectId
+  name        String
+  description String
+  categoryId  String  @db.ObjectId
+  quantity    String
+  isDefault   Boolean @default(false)
+  totalPrice  String
+
+  gifts  Gift[]
+  images Image[]
+}
+
+model Category {
+  id   String @id @default(auto()) @map("_id") @db.ObjectId
+  name String
 }
 
 model Image {
-  id        String   @id @default(auto()) @map("_id") @db.ObjectId
-  url       String
-  giftId    String   @db.ObjectId
-  gift      Gift     @relation(fields: [giftId], references: [id])
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  url        String
+  giftId     String   @db.ObjectId
+  giftListId String   @db.ObjectId
+  gift       Gift     @relation(fields: [giftId], references: [id])
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  GiftList   GiftList @relation(fields: [giftListId], references: [id])
 }
 
 model VerificationToken {

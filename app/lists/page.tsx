@@ -1,14 +1,13 @@
-import Container from "./components/Container";
-import { getCurrentUser } from "./actions/getCurrentUser";
+import { getCurrentUser } from "@/app/actions/getCurrentUser";
+import Container from "@/app/components/Container";
+import GiftCard from "@/app/components/modals/gifts/GiftCard";
 import EmptyState from "@/app/components/EmptyState";
-import GiftCard from "./components/modals/gifts/GiftCard";
 import { IoGiftOutline } from "react-icons/io5";
 import { PiCouchLight } from "react-icons/pi";
 import { IoAdd } from "react-icons/io5";
+import { redirect } from "next/navigation";
 
 export default async function Home() {
-  const currentUser = await getCurrentUser();
-
   return (
     <Container>
       <div className="min-h-screen flex flex-col justify-center">

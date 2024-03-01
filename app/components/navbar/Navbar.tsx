@@ -1,12 +1,11 @@
-"use client"
+"use client";
 
 import { User } from "@prisma/client";
-import { FC } from "react";
+import Container from "@/app/components/Container";
+import Logo from "@/app/signup/Logo";
+import UserMenu from "@/app/components/navbar/UserMenu";
 import { Inter } from "next/font/google";
-import Container from "../Container";
-import Logo from "./Logo";
-import UserMenu from "./UserMenu";
-import { usePathname } from 'next/navigation';
+import { usePathname } from "next/navigation";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,13 +13,13 @@ type NavBarProps = {
   currentUser?: User | null;
 };
 
-export const NavBar: FC<NavBarProps> = ({ currentUser }) => {
+export const NavBar = ({ currentUser }: NavBarProps) => {
   const pathname = usePathname();
 
-  if (pathname.includes('/signup')) {
-    return <></>
+  if (pathname.includes("/signup")) {
+    return <></>;
   }
- 
+
   return (
     <div className={`fixed w-full bg-white z-10 shadow-sm ${inter.className}`}>
       <div className="py-3 border-b-[1px] px-10">

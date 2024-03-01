@@ -1,6 +1,5 @@
-import React from "react";
 //import Input from "../components/inputs/Input";
-import { Button } from "@/components/ui/button";
+// import { Button } from "@/components/ui/button";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../utils/auth";
 import { redirect } from "next/navigation";
@@ -10,11 +9,11 @@ import RegisterLeft from "./RegisterLeft";
 
 const SingUpPage = async () => {
   //const [isLoading, setIsLoading] = useState(false);
-  const session = await getServerSession(authOptions);
+  // const session = await getServerSession(authOptions);
 
-  if (session) {
-    redirect("/");
-  }
+  // if (session) {
+  //   redirect("/");
+  // }
 
   /* const {
     register,
@@ -38,7 +37,6 @@ const SingUpPage = async () => {
           <RegisterRight />
         </div>
       </div>
-      
     </div>
   );
 };
