@@ -1,6 +1,7 @@
 import { getCurrentUser } from "@/app/actions/getCurrentUser";
 import Container from "@/app/components/Container";
 import PredefinedGiftListCard from "@/app/components/modals/gifts/PredefinedGiftListCard";
+import {getGiftLists} from '@/app/actions/getGiftLists';
 import EmptyState from "@/app/components/EmptyState";
 import { IoGiftOutline } from "react-icons/io5";
 import { PiCouchLight } from "react-icons/pi";
@@ -8,6 +9,10 @@ import { IoAdd } from "react-icons/io5";
 import { redirect } from "next/navigation";
 
 export default async function PredefinedGiftsPage() {
+
+  const category = await getGiftLists();
+  console.log(category);
+
   return (
     <Container>
       <div className="px-10">
