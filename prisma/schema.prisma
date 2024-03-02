@@ -98,7 +98,6 @@ model GiftList {
   id          String  @id @default(auto()) @map("_id") @db.ObjectId
   name        String
   description String
-  categoryId  String  @db.ObjectId
   quantity    String
   isDefault   Boolean @default(false)
   totalPrice  String
