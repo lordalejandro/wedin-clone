@@ -6,7 +6,8 @@ type GiftListsParams = {
 
 export async function getGiftLists() {
   try {
-    const giftLists = await prisma.category.findMany();
+    const giftLists = await prisma.giftList.findMany();
+    console.log("Gift Lists from database:", giftLists)
 
     if (!giftLists) return null;
 

@@ -30,7 +30,6 @@ const seedData = {
             "description": "Para los que quieran colaborar con un regalo más grande",
             "isDefault": true,
             "quantiy": "5",
-            "categoryId:": 1,
             "totalPrice": "3450"
         },
         {
@@ -39,7 +38,6 @@ const seedData = {
             "description": "Para los que quieran colaborar con un regalo más pequeño",
             "isDefault": true,
             "quantiy": "5",
-            "categoryId:": 1,
             "totalPrice": "660"
         },
         {
@@ -48,7 +46,6 @@ const seedData = {
             "description": "Para los que quieran colaborar con un regalo mediano",
             "isDefault": true,
             "quantiy": "5",
-            "categoryId:": 1,
             "totalPrice": "1360"
         },
         {
@@ -57,7 +54,6 @@ const seedData = {
             "description": "Para los amantes de la adrenalina y experiencias únicas",
             "isDefault": true,
             "quantiy": "5",
-            "categoryId:": 4,
             "totalPrice": "2350"
         },
         {
@@ -66,7 +62,6 @@ const seedData = {
             "description": "Para disfrutar de tranquilidad y paz en lugares soñados",
             "isDefault": true,
             "quantiy": "5",
-            "categoryId:": 5,
             "totalPrice": "840"
         },
         {
@@ -75,7 +70,6 @@ const seedData = {
             "isDefault": true,
             "description": "Para explorar las maravillas culturales y artísticas del destino",
             "quantiy": "5",
-            "categoryId:": 2,
             "totalPrice": "580"
         }
     ],
@@ -86,7 +80,8 @@ const seedData = {
             "description": "Cena romántica en un restaurante de lujo",
             "isDefault": true,
             "giftListId": 1,
-            "price": 1000
+            "price": 1000,
+            "categoryId": 1
         },
         {
             "id": 2,
@@ -94,7 +89,8 @@ const seedData = {
             "description": "Aventura en kayak por los ríos más hermosos",
             "isDefault": true,
             "giftListId": 4,
-            "price": 300
+            "price": 300,
+            "categoryId": 4
         },
         {
             "id": 3,
@@ -102,7 +98,8 @@ const seedData = {
             "description": "Sesión de masajes para dos en un spa de lujo",
             "isDefault": true,
             "giftListId": 5,
-            "price": 200
+            "price": 200,
+            "categoryId": 5
         },
         {
             "id": 4,
@@ -110,7 +107,8 @@ const seedData = {
             "description": "Entradas para un museo emblemático",
             "isDefault": true,
             "giftListId": 6,
-            "price": 50
+            "price": 50,
+            "categoryId": 2
         },
         {
             "id": 5,
@@ -118,7 +116,8 @@ const seedData = {
             "description": "Experiencia de cata de vinos en una viña prestigiosa",
             "isDefault": true,
             "giftListId": 3,
-            "price": 150
+            "price": 150,
+            "categoryId": 3
         },
         {
             "id": 6,
@@ -126,7 +125,8 @@ const seedData = {
             "description": "Clase de surf para dos en una playa icónica",
             "isDefault": true,
             "giftListId": 4,
-            "price": 200
+            "price": 200,
+            "categoryId": 4
         },
         {
             "id": 7,
@@ -134,7 +134,8 @@ const seedData = {
             "description": "Paseo en globo aerostático al amanecer",
             "isDefault": true,
             "giftListId": 1,
-            "price": 500
+            "price": 500,
+            "categoryId": 1
         },
         {
             "id": 8,
@@ -142,7 +143,8 @@ const seedData = {
             "description": "Tour gastronómico por la ciudad, probando platos típicos",
             "isDefault": true,
             "giftListId": 6,
-            "price": 250
+            "price": 250,
+            "categoryId": 2
         },
         {
             "id": 9,
@@ -150,7 +152,8 @@ const seedData = {
             "description": "Una noche en hotel de 5 estrellas",
             "isDefault": true,
             "giftListId": 1,
-            "price": 800
+            "price": 800,
+            "categoryId": 1
         },
         {
             "id": 10,
@@ -158,7 +161,8 @@ const seedData = {
             "description": "Inmersión de buceo en un arrecife de coral",
             "isDefault": true,
             "giftListId": 4,
-            "price": 400
+            "price": 400,
+            "categoryId": 4
         },
         {
             "id": 11,
@@ -166,7 +170,8 @@ const seedData = {
             "description": "Un pequeño concierto privado de música local",
             "isDefault": true,
             "giftListId": 3,
-            "price": 600
+            "price": 600,
+            "categoryId": 3
         },
         {
             "id": 12,
@@ -174,7 +179,8 @@ const seedData = {
             "description": "Picnic en un parque nacional con productos gourmet",
             "isDefault": true,
             "giftListId": 2,
-            "price": 120
+            "price": 120,
+            "categoryId": 1
         },
         {
             "id": 13,
@@ -182,7 +188,8 @@ const seedData = {
             "description": "Paseo a caballo por paisajes naturales impresionantes",
             "isDefault": true,
             "giftListId": 5,
-            "price": 180
+            "price": 180,
+            "categoryId": 5
         },
         {
             "id": 14,
@@ -190,7 +197,8 @@ const seedData = {
             "description": "Recorrido guiado por las mejores obras de arte urbano",
             "isDefault": true,
             "giftListId": 6,
-            "price": 70
+            "price": 70,
+            "categoryId": 2
         },
         {
             "id": 15,
@@ -198,7 +206,8 @@ const seedData = {
             "description": "Sesión fotográfica profesional en locaciones icónicas",
             "isDefault": true,
             "giftListId": 2,
-            "price": 250
+            "price": 250,
+            "categoryId": 1
         },
         {
             "id": 16,
@@ -206,7 +215,8 @@ const seedData = {
             "description": "Curso para aprender a preparar platos típicos del lugar",
             "isDefault": true,
             "giftListId": 3,
-            "price": 220
+            "price": 220,
+            "categoryId": 3
         },
         {
             "id": 17,
@@ -214,7 +224,8 @@ const seedData = {
             "description": "Salto tándem en paracaídas sobre paisajes espectaculares",
             "isDefault": true,
             "giftListId": 4,
-            "price": 600
+            "price": 600,
+            "categoryId": 4
         },
         {
             "id": 18,
@@ -222,7 +233,8 @@ const seedData = {
             "description": "Noche de observación de estrellas en un observatorio",
             "isDefault": true,
             "giftListId": 5,
-            "price": 160
+            "price": 160,
+            "categoryId": 5
         },
         {
             "id": 19,
@@ -230,7 +242,8 @@ const seedData = {
             "description": "Cena privada en la playa al atardecer",
             "isDefault": true,
             "giftListId": 1,
-            "price": 700
+            "price": 700,
+            "categoryId": 1
         },
         {
             "id": 20,
@@ -238,7 +251,8 @@ const seedData = {
             "description": "Excursión guiada por senderos naturales con vistas increíbles",
             "isDefault": true,
             "giftListId": 2,
-            "price": 100
+            "price": 100,
+            "categoryId": 1
         },
         {
             "id": 21,
@@ -246,7 +260,8 @@ const seedData = {
             "description": "Alquiler de jet ski para un día de aventura en el mar",
             "isDefault": true,
             "giftListId": 4,
-            "price": 350
+            "price": 350,
+            "categoryId": 4
         },
         {
             "id": 22,
@@ -254,7 +269,8 @@ const seedData = {
             "description": "Una tarde completa de relajación en un spa de primera",
             "isDefault": true,
             "giftListId": 5,
-            "price": 300
+            "price": 300,
+            "categoryId": 5
         },
         {
             "id": 23,
@@ -262,7 +278,8 @@ const seedData = {
             "description": "Entrada a jardines botánicos con tour guiado",
             "isDefault": true,
             "giftListId": 6,
-            "price": 60
+            "price": 60,
+            "categoryId": 2
         },
         {
             "id": 24,
@@ -270,7 +287,8 @@ const seedData = {
             "description": "Entradas para un espectacular show de luces en un sitio histórico",
             "isDefault": true,
             "giftListId": 3,
-            "price": 90
+            "price": 90,
+            "categoryId": 3
         },
         {
             "id": 25,
@@ -278,7 +296,8 @@ const seedData = {
             "description": "Alquiler de bicicleta eléctrica para recorrer la ciudad",
             "isDefault": true,
             "giftListId": 2,
-            "price": 80
+            "price": 80,
+            "categoryId": 1
         },
         {
             "id": 26,
@@ -286,7 +305,8 @@ const seedData = {
             "description": "Participación en un taller de arte local para crear tu propia obra",
             "isDefault": true,
             "giftListId": 6,
-            "price": 150
+            "price": 150,
+            "categoryId": 2
         },
         {
             "id": 27,
@@ -294,7 +314,8 @@ const seedData = {
             "description": "Paseo en un submarino para explorar la vida marina",
             "isDefault": true,
             "giftListId": 4,
-            "price": 500
+            "price": 500,
+            "categoryId": 4
         },
         {
             "id": 28,
@@ -302,7 +323,8 @@ const seedData = {
             "description": "Experiencia de degustación de chocolates artesanales",
             "isDefault": true,
             "giftListId": 2,
-            "price": 110
+            "price": 110,
+            "categoryId": 1
         },
         {
             "id": 29,
@@ -310,7 +332,8 @@ const seedData = {
             "description": "Tour privado en barco al atardecer",
             "isDefault": true,
             "giftListId": 1,
-            "price": 450
+            "price": 450,
+            "categoryId": 1
         },
         {
             "id": 30,
@@ -318,19 +341,22 @@ const seedData = {
             "description": "Excursión de un día a una isla cercana con picnic incluido",
             "isDefault": true,
             "giftListId": 3,
-            "price": 320
+            "price": 320,
+            "categoryId": 3
         }
     ]
 }
+
 
 const prismaClient = new PrismaClient();
 
 async function main() {
     const categoryData = seedData.categories;
-    categoryData.forEach((category) => { console.log(category)});
-
+    const listsData =  seedData.lists;
+    categoryData.forEach((category) => { console.log(category) });
+    listsData.forEach((giftlist) => { console.log(giftlist) });
     // await prismaClient.category.create({ data : { name: "Luna de Miel"}});
- 
+
 
     /* await prisma... */
 }

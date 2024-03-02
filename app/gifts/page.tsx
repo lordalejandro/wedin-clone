@@ -1,5 +1,4 @@
 import React from "react";
-import PredefinedGiftsPage from "../lists/page";
 import { getCurrentUser } from "@/app/actions/getCurrentUser";
 import Container from "@/app/components/Container";
 import PredefinedGiftListCard from "@/app/components/modals/gifts/PredefinedGiftListCard";
@@ -8,8 +7,16 @@ import { IoGiftOutline } from "react-icons/io5";
 import { PiCouchLight } from "react-icons/pi";
 import { IoAdd } from "react-icons/io5";
 import { redirect } from "next/navigation";
+import { getGiftLists } from "@/app/actions/getGiftLists";
 
-const GiftsPage = () => {
+const GiftsPage = async () => {
+  const currentUser = await getCurrentUser();
+  const giftLists = await getGiftLists();
+
+  console.log("Gift Lists:", giftLists);
+
+  if (giftLists?.length === 0) return <EmptyState showReset />;
+
   return (
     <Container>
       <div className="min-h-screen flex flex-col justify-center">
@@ -41,7 +48,20 @@ const GiftsPage = () => {
           </p>
         </div>
 
-        <PredefinedGiftsPage />
+        <Container>
+          <div className="px-10">
+            {giftLists?.map((giftList) => (
+              <PredefinedGiftListCard
+                title={giftList.name}
+                description={giftList.description}
+                img={""}
+                price={giftList.totalPrice}
+                id={giftList.id}
+                items={giftList.quantity}
+              />
+            ))}
+          </div>
+        </Container>
       </div>
     </Container>
   );

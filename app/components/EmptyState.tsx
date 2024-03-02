@@ -13,8 +13,8 @@ type Props = {
 };
 
 const EmptyState: FC<Props> = ({
-  title = "No exact matches",
-  subtitle = "Try ghanging or removing some of your filters",
+  title = "Something bad happened",
+  subtitle = "Try changing yourself",
   showReset,
 }) => {
   const router = useRouter();
@@ -26,7 +26,7 @@ const EmptyState: FC<Props> = ({
         {showReset && (
           <Button
             outline
-            label="Remove all filter"
+            label="Go to home page"
             onClick={() => router.push("/")}
           />
         )}

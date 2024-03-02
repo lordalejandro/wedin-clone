@@ -6,7 +6,7 @@ type ListCard = {
   title: string
   description: string
   price: string
-  id: number
+  id: string
   items: string
 }
 
