@@ -12,9 +12,9 @@ type ListCard = {
 
 const PredefinedGiftListCard = ({ title, description, price, items }: ListCard) => {
   return (
-    <div className='border-2 rounded-xl py-6 px-4 flex flex-col gap-5 max-w-[304px]'>
+    <div className='border-2 rounded-xl py-6 px-4 flex flex-col gap-5 max-w-[320px]'>
         <div>
-            <div className='h-[202px] w-[268px] bg-borderColor rounded-xl flex items-start justify-end'>
+            <div className='h-[202px] w-full bg-borderColor rounded-xl flex items-start justify-end'>
               <div className='bg-white rounded-full px-5 py-1.5 flex items-center justify-center mt-4 mr-4'>
                 {items} regalos
               </div>

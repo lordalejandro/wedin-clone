@@ -2,7 +2,7 @@
 
 import { User } from "@prisma/client";
 import Container from "@/app/components/Container";
-import Logo from "@/app/signup/Logo";
+import Logo from "./Logo";
 import UserMenu from "@/app/components/navbar/UserMenu";
 import { Inter } from "next/font/google";
 import { usePathname } from "next/navigation";
@@ -22,7 +22,7 @@ export const NavBar = ({ currentUser }: NavBarProps) => {
 
   return (
     <div className={`fixed w-full bg-white z-10 shadow-sm ${inter.className}`}>
-      <div className="py-3 border-b-[1px] px-10">
+      <div className="py-3 px-10">
         <Container>
           <div className="flex flex-row items-center justify-between gap-3 md:gap-0">
             <Logo />

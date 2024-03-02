@@ -20,6 +20,9 @@ module.exports = {
         secondaryBackgroundColor: '#E7E7E7',
         borderColor: '#E0E0E0',
       },
+      screens: {
+        '3xl': '1900px',
+      },
     },
   },
   plugins: [],
