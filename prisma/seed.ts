@@ -29,7 +29,7 @@ const seedData = {
             "name": "Luna de miel grande",
             "description": "Para los que quieran colaborar con un regalo más grande",
             "isDefault": true,
-            "quantiy": "5",
+            "quantity": "5",
             "totalPrice": "3450"
         },
         {
@@ -37,7 +37,7 @@ const seedData = {
             "name": "Luna de miel pequeña",
             "description": "Para los que quieran colaborar con un regalo más pequeño",
             "isDefault": true,
-            "quantiy": "5",
+            "quantity": "5",
             "totalPrice": "660"
         },
         {
@@ -45,7 +45,7 @@ const seedData = {
             "name": "Luna de miel mediana",
             "description": "Para los que quieran colaborar con un regalo mediano",
             "isDefault": true,
-            "quantiy": "5",
+            "quantity": "5",
             "totalPrice": "1360"
         },
         {
@@ -53,7 +53,7 @@ const seedData = {
             "name": "Aventuras extremas",
             "description": "Para los amantes de la adrenalina y experiencias únicas",
             "isDefault": true,
-            "quantiy": "5",
+            "quantity": "5",
             "totalPrice": "2350"
         },
         {
@@ -61,7 +61,7 @@ const seedData = {
             "name": "Relax total",
             "description": "Para disfrutar de tranquilidad y paz en lugares soñados",
             "isDefault": true,
-            "quantiy": "5",
+            "quantity": "5",
             "totalPrice": "840"
         },
         {
@@ -69,7 +69,7 @@ const seedData = {
             "name": "Cultura y arte",
             "isDefault": true,
             "description": "Para explorar las maravillas culturales y artísticas del destino",
-            "quantiy": "5",
+            "quantity": "5",
             "totalPrice": "580"
         }
     ],
@@ -352,13 +352,35 @@ const prismaClient = new PrismaClient();
 
 async function main() {
     const categoryData = seedData.categories;
-    const listsData =  seedData.lists;
-    categoryData.forEach((category) => { console.log(category) });
-    listsData.forEach((giftlist) => { console.log(giftlist) });
-    // await prismaClient.category.create({ data : { name: "Luna de Miel"}});
+    const listsData = seedData.lists;
 
+    try {
+        for (const category of categoryData) {
+            await prismaClient.category.create({
+                data: {
+                    name: category.name
+                }
+            });
+        }
 
-    /* await prisma... */
+        for (const list of listsData) {
+            await prismaClient.giftList.create({
+                data: {
+                    name: list.name,
+                    description: list.description,
+                    isDefault: list.isDefault,
+                    quantity: list.quantity,
+                    totalPrice: list.totalPrice,
+                }
+            });
+        }
+
+        console.log("Data seeded successfully!");
+    } catch (error) {
+        console.error("Error seeding data:", error);
+    } finally {
+        await prismaClient.$disconnect();
+    }
 }
 
 main()

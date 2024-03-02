@@ -8,6 +8,7 @@ import { PiCouchLight } from "react-icons/pi";
 import { IoAdd } from "react-icons/io5";
 import { redirect } from "next/navigation";
 import { getGiftLists } from "@/app/actions/getGiftLists";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 const GiftsPage = async () => {
   const currentUser = await getCurrentUser();
@@ -20,7 +21,7 @@ const GiftsPage = async () => {
   return (
     <Container>
       <div className="min-h-screen flex flex-col justify-center">
-        <h1 className="text-5xl font-medium text-primaryTextColor px-10">
+        <h1 className="text-5xl font-medium text-primaryTextColor px-10 mt-20">
           Créa tu lista de regalos
         </h1>
 
@@ -49,7 +50,7 @@ const GiftsPage = async () => {
         </div>
 
         <Container>
-          <div className="px-10">
+          <div className="px-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
             {giftLists?.map((giftList) => (
               <PredefinedGiftListCard
                 title={giftList.name}
