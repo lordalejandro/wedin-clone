@@ -25,8 +25,9 @@ export default async function Home({ params }: Props) {
 
   return (
     <Container>
-      <div className="min-h-screen flex flex-col justify-center">
-        list with id {listId}
+      <div className="min-h-screen flex items-center justify-center">
+        list with id&nbsp;
+        <span className="font-medium">{listId}</span>
       </div>
     </Container>
   );

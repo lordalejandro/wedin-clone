@@ -9,6 +9,7 @@ import { IoAdd } from "react-icons/io5";
 import { redirect } from "next/navigation";
 import { getGiftLists } from "@/app/actions/getGiftLists";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import GiftCard from "../components/modals/gifts/GiftCard";
 
 const GiftsPage = async () => {
   const currentUser = await getCurrentUser();
@@ -61,10 +62,12 @@ const GiftsPage = async () => {
             </div>
           </TabsContent>
           <TabsContent value="allGifts">
-            <p className="text-gray-500 mb-10 px-10">
+            <p className="text-secondaryTextColor text-xl mb-10 px-10">
               Elegí los productos que más te gusten y empezá a armar tu lista
             </p>
-            <div className="px-10">all gifts</div>
+            <div className="px-10">
+              <GiftCard />
+            </div>
           </TabsContent>
         </Tabs>
       </div>
