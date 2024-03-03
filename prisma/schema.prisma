@@ -83,13 +83,12 @@ model Gift {
   giftListId  String   @db.ObjectId
   isDefault   Boolean  @default(false)
   categoryId  String   @db.ObjectId
-  price       Float
-  category    String
-  wishListId  String   @db.ObjectId
+  price       String
+  wishListId  String?   @db.ObjectId
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 
-  wishList WishList @relation(fields: [wishListId], references: [id])
+  wishList WishList? @relation(fields: [wishListId], references: [id])
   giftlist GiftList @relation(fields: [giftListId], references: [id])
   images   Image[]
 }

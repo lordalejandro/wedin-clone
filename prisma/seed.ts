@@ -353,6 +353,7 @@ const prismaClient = new PrismaClient();
 async function main() {
     const categoryData = seedData.categories;
     const listsData = seedData.lists;
+    const giftsData = seedData.gifts;
 
     try {
         for (const category of categoryData) {
@@ -371,6 +372,56 @@ async function main() {
                     isDefault: list.isDefault,
                     quantity: list.quantity,
                     totalPrice: list.totalPrice,
+                }
+            });
+        }
+
+        for (const gift of giftsData) {
+            const categoryId = categoryData.find(category => {
+                return category['id'] === gift.categoryId
+            })
+
+            const giftListId = listsData.find(list => {
+                return list['id'] === gift.giftListId
+            })
+
+            console.log(categoryId);
+
+            if (categoryId === null || categoryId === undefined) {
+                console.error(`Category with ID ${gift.categoryId} not found`);
+                return;
+            }
+            if (categoryId['name'] === null || categoryId['name'] === undefined) {
+                console.error(`Category with ID ${gift.categoryId} not found`);
+                return;
+            }
+
+            if (giftListId === null || giftListId === undefined) {
+                console.error(`Gift List with ID ${gift.giftListId} not found`);
+                return;
+            }
+            if (giftListId['name'] === null || giftListId['name'] === undefined) {
+                console.error(`Gift List with ID ${gift.giftListId} not found`);
+                return;
+            }
+
+
+            const category = await prismaClient.category.findFirst({
+                where: { name: categoryId['name'] },
+            });
+
+            const giftList = await prismaClient.giftList.findFirst({
+                where: { name: giftListId['name'] },
+            });
+
+            await prismaClient.gift.create({
+                data: {
+                    name: gift.name,
+                    description: gift.description,
+                    isDefault: gift.isDefault,
+                    giftListId: giftList.id,
+                    price: gift.price.toString(),
+                    categoryId: category.id,
                 }
             });
         }

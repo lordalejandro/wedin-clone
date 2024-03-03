@@ -19,6 +19,7 @@ module.exports = {
         primaryBackgroundColor: '#444444',
         secondaryBackgroundColor: '#E7E7E7',
         borderColor: '#E0E0E0',
+        secondaryBorderColor: '#B4B4B4',
       },
       screens: {
         '3xl': '1900px',

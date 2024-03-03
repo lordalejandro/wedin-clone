@@ -8,12 +8,16 @@ import { PiCouchLight } from "react-icons/pi";
 import { IoAdd } from "react-icons/io5";
 import { redirect } from "next/navigation";
 import { getGiftLists } from "@/app/actions/getGiftLists";
+import { getGift } from "@/app/actions/getGift";
+import { getCategory } from "@/app/actions/getCategory";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import GiftCard from "../components/modals/gifts/GiftCard";
 
 const GiftsPage = async () => {
   const currentUser = await getCurrentUser();
   const giftLists = await getGiftLists();
+  const gift = await getGift();
+  const category = await getCategory();
 
   /* console.log("Gift Lists:", giftLists); */
 
@@ -28,7 +32,10 @@ const GiftsPage = async () => {
 
         <Tabs defaultValue="predefinedGift" className="">
           <TabsList className="flex items-center justify-start gap-4 my-10 border-b border-[#D7D7D7] px-10 overflow-x-auto overflow-y-hidden">
-            <TabsTrigger value="predefinedGift" className="flex gap-2 items-center">
+            <TabsTrigger
+              value="predefinedGift"
+              className="flex gap-2 items-center"
+            >
               <IoGiftOutline size={24} className="mb-[2.5px]" />
               <span>Listas pré-definidas</span>
             </TabsTrigger>
@@ -65,8 +72,25 @@ const GiftsPage = async () => {
             <p className="text-secondaryTextColor text-xl mb-10 px-10">
               Elegí los productos que más te gusten y empezá a armar tu lista
             </p>
-            <div className="px-10">
-              <GiftCard />
+            <div className="px-10 flex items-start gap-3 mb-10">
+              {category?.map((category) => (
+                <div className="bg-white rounded-full border border-secondaryBorderColor py-1 px-3 text-primaryTextColor">
+                  {category.name}
+                </div>
+              ))}
+            </div>
+            <div className="flex flex-col justify-center items-center">
+              <div className="px-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 3xl:grid-cols-5 gap-8">
+                {gift?.map((gift) => (
+                  <GiftCard
+                    img={""}
+                    title={gift.name}
+                    description={gift.description}
+                    price={gift.price}
+                    id={gift.id}
+                  />
+                ))}
+              </div>
             </div>
           </TabsContent>
         </Tabs>
