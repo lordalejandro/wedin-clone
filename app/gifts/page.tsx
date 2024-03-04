@@ -6,10 +6,9 @@ import EmptyState from "@/app/components/EmptyState";
 import { IoGiftOutline } from "react-icons/io5";
 import { PiCouchLight } from "react-icons/pi";
 import { IoAdd } from "react-icons/io5";
-import { redirect } from "next/navigation";
 import { getGiftLists } from "@/app/actions/getGiftLists";
 import { getGift, GiftParams } from "@/app/actions/getGift";
-//import { getCategory } from "@/app/actions/getCategory";
+import { getCategory } from "@/app/actions/getCategory";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import GiftCard from "../components/modals/gifts/GiftCard";
 import Categories from "./Categories";
@@ -17,12 +16,13 @@ import Categories from "./Categories";
 const GiftsPage = async ({ searchParams }: { searchParams: GiftParams }) => {
   const currentUser = await getCurrentUser();
   const giftLists = await getGiftLists();
-  const gift = await getGift({ searchParams });
-  //const category = await getCategory();
+  const gifts = await getGift({ searchParams });
+  const categories = await getCategory();
 
-  /* console.log("Gift Lists:", giftLists); */
+  //console.log(gifts);
 
   if (giftLists?.length === 0) return <EmptyState showReset />;
+  if (gifts?.length === 0) return <EmptyState showReset />;
 
   return (
     <Container>
@@ -58,6 +58,7 @@ const GiftsPage = async ({ searchParams }: { searchParams: GiftParams }) => {
               <div className="px-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 3xl:grid-cols-6 gap-8">
                 {giftLists?.map((giftList) => (
                   <PredefinedGiftListCard
+                    key={giftList.id}
                     title={giftList.name}
                     description={giftList.description}
                     img={""}
@@ -74,12 +75,13 @@ const GiftsPage = async ({ searchParams }: { searchParams: GiftParams }) => {
               Elegí los productos que más te gusten y empezá a armar tu lista
             </p>
 
-            <Categories />
+            <Categories categories={categories} />
 
             <div className="flex justify-center items-center">
               <div className="px-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 3xl:grid-cols-5 gap-8">
-                {gift?.map((gift) => (
+                {gifts?.map((gift) => (
                   <GiftCard
+                    key={gift.id}
                     img={""}
                     title={gift.name}
                     description={gift.description}

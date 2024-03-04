@@ -17,7 +17,7 @@ const GiftCard = ({ title, description, price }: GiftCard) => {
         <div className="h-[212px] w-full bg-borderColor rounded-xl flex items-start justify-end"></div>
       </div>
 
-      <div>
+      <div className="flex flex-col gap-1 w-full">
         <h1 className="text-primaryTitleColor font-medium text-lg">{title}</h1>
 
         <p className="text-sm">{description}</p>

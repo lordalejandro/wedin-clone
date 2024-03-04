@@ -385,7 +385,7 @@ async function main() {
                 return list['id'] === gift.giftListId
             })
 
-            console.log(categoryId);
+            //console.log(categoryId);
 
             if (categoryId === null || categoryId === undefined) {
                 console.error(`Category with ID ${gift.categoryId} not found`);

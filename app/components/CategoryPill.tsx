@@ -5,14 +5,16 @@ import qs from "query-string";
 import { useCallback } from "react";
 
 type CategoryPillProps = {
-  key: string;
-  label: string;
-  selected?: boolean;
+  key: string
+  id: string
+  label: string
+  selected?: boolean
 };
 
 const CategoryPill: React.FC<CategoryPillProps> = ({
   selected,
   label,
+  id,
 }) => {
   const router = useRouter();
   const params = useSearchParams();
@@ -26,10 +28,10 @@ const CategoryPill: React.FC<CategoryPillProps> = ({
 
     const updatedQuery = {
       ...currentQuery,
-      category: label,
+      category: id,
     };
 
-    if (params?.get("category") === label) {
+    if (params?.get("category") === id) {
       updatedQuery.category = "";
     }
 
@@ -42,7 +44,7 @@ const CategoryPill: React.FC<CategoryPillProps> = ({
     );
 
     router.push(url);
-  }, [label, params, router]);
+  }, [id, params, router]);
 
   return (
     <div
@@ -51,13 +53,15 @@ const CategoryPill: React.FC<CategoryPillProps> = ({
         rounded-full
         py-1 px-4
         transition
+        border
         cursor-pointer
-        hover:bg
-        ${selected ? "bg-primaryBackgroundColor text-white" : "border border-secondaryBorderColor"}
-        ${selected ? "text-neutral-800" : "text-neutral-500"}
+        hover:bg-primaryBackgroundColor
+        hover:text-white
+        ${selected ? "bg-primaryBackgroundColor" : "border-secondaryBorderColor"}
+        ${selected ? "text-white" : "text-primaryTextColor"}
       `}
     >
-      <div className={`${selected ? "text-white" : "text-primaryTextColor"}`}>{label}</div>
+      {label}
     </div>
   );
 };

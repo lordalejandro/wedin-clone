@@ -9,9 +9,11 @@ export async function getGift({ searchParams }: { searchParams?: GiftParams }) {
 
     let query: any = {};
     const { category } = searchParams ?? {};
+    
+    //console.log("category id:", category)
 
     if (category) {
-      query.category = category;
+      query.categoryId = category;
     }
 
     const gifts = await prisma.gift.findMany({
@@ -21,7 +23,7 @@ export async function getGift({ searchParams }: { searchParams?: GiftParams }) {
       },
     });  
 
-    console.log("Gifts from database:", gifts)
+    /* console.log("Gifts from database:", gifts) */
 
     if (!gifts) return null;
 

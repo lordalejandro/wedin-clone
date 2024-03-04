@@ -21,7 +21,7 @@ export default async function Home({ params }: Props) {
 
   const { listId } = params;
 
-  console.log(listId);
+  //console.log(listId);
 
   return (
     <Container>
