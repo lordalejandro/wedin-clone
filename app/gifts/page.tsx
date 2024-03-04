@@ -8,16 +8,17 @@ import { PiCouchLight } from "react-icons/pi";
 import { IoAdd } from "react-icons/io5";
 import { redirect } from "next/navigation";
 import { getGiftLists } from "@/app/actions/getGiftLists";
-import { getGift } from "@/app/actions/getGift";
-import { getCategory } from "@/app/actions/getCategory";
+import { getGift, GiftParams } from "@/app/actions/getGift";
+//import { getCategory } from "@/app/actions/getCategory";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import GiftCard from "../components/modals/gifts/GiftCard";
+import Categories from "./Categories";
 
-const GiftsPage = async () => {
+const GiftsPage = async ({ searchParams }: { searchParams: GiftParams }) => {
   const currentUser = await getCurrentUser();
   const giftLists = await getGiftLists();
-  const gift = await getGift();
-  const category = await getCategory();
+  const gift = await getGift({ searchParams });
+  //const category = await getCategory();
 
   /* console.log("Gift Lists:", giftLists); */
 
@@ -72,14 +73,10 @@ const GiftsPage = async () => {
             <p className="text-secondaryTextColor text-xl mb-10 px-10">
               Elegí los productos que más te gusten y empezá a armar tu lista
             </p>
-            <div className="px-10 flex items-start gap-3 mb-10">
-              {category?.map((category) => (
-                <div className="bg-white rounded-full border border-secondaryBorderColor py-1 px-3 text-primaryTextColor">
-                  {category.name}
-                </div>
-              ))}
-            </div>
-            <div className="flex flex-col justify-center items-center">
+
+            <Categories />
+
+            <div className="flex justify-center items-center">
               <div className="px-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 3xl:grid-cols-5 gap-8">
                 {gift?.map((gift) => (
                   <GiftCard

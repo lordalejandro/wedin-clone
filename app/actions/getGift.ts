@@ -1,17 +1,31 @@
 import prisma from "@/app/utils/db";
 
-type GiftParams = {
-  giftId?: string;
+export type GiftParams = {
+  category?: string;
 };
 
-export async function getGift() {
+export async function getGift({ searchParams }: { searchParams?: GiftParams }) {
   try {
-    const gift = await prisma.gift.findMany();
-    console.log("Gift Lists from database:", gift)
 
-    if (!gift) return null;
+    let query: any = {};
+    const { category } = searchParams ?? {};
 
-    return gift;
+    if (category) {
+      query.category = category;
+    }
+
+    const gifts = await prisma.gift.findMany({
+      where: query,
+      orderBy: {
+        createdAt: "desc",
+      },
+    });  
+
+    console.log("Gifts from database:", gifts)
+
+    if (!gifts) return null;
+
+    return gifts;
   } catch (error: any) {
     console.log(error);
     return null;

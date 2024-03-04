@@ -7,7 +7,7 @@ type CategoryParams = {
 export async function getCategory() {
   try {
     const category = await prisma.category.findMany();
-    console.log("Gift Lists from database:", category)
+    //console.log("Gift categories from database:", category)
 
     if (!category) return null;
 
