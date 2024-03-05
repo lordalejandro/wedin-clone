@@ -16,7 +16,7 @@ export default function SignInForm() {
   async function SignInEmail() {
     const signInResult = await signIn("email", {
       email: Email,
-      callbackUrl: `${window.location.origin}`,
+      callbackUrl: `${window.location.origin}/gifts`,
       redirect: false,
     });
 

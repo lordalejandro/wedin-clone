@@ -16,7 +16,7 @@ const Categories = ({ categories }: Category) => {
   const category_url = params?.get("category");
   //console.log(category_url);
   return (
-    <div className="px-10 flex items-start gap-3 mb-10 overflow-x-auto overflow-y-hidden">
+    <div className="px-10 flex items-start gap-3 mb-8 sm:mb-10 overflow-x-auto overflow-y-hidden">
       {categories?.map((category) => (
         <CategoryPill key={category.id} id={category.id} label={category.name} selected={category.id === category_url} />
       ))}
