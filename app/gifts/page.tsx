@@ -13,6 +13,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import GiftCard from "../components/modals/gifts/GiftCard";
 import Categories from "./Categories";
 
+export const dynamic = 'force-static';
+
 const GiftsPage = async ({ searchParams }: { searchParams: GiftParams }) => {
   const currentUser = await getCurrentUser();
   const giftLists = await getGiftLists();

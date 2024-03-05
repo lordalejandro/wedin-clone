@@ -1,5 +1,7 @@
 "use client"
 
+export const dynamic = 'force-static';
+
 import { useRouter, useSearchParams } from "next/navigation";
 import qs from "query-string";
 import { useCallback } from "react";
@@ -70,3 +72,4 @@ const CategoryPill: React.FC<CategoryPillProps> = ({
 };
 
 export default CategoryPill;
+

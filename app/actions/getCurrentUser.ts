@@ -26,3 +26,6 @@ export async function getCurrentUser() {
     return null;
   }
 }
+
+export const dynamic = 'dynamic force';
+// 'automatic' | 'dynamic force' | 'error' | 'static force'
