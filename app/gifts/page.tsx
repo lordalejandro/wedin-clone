@@ -27,7 +27,7 @@ const GiftsPage = async ({ searchParams }: { searchParams: GiftParams }) => {
   return (
     <Container>
       <div className="min-h-screen flex flex-col justify-center">
-        <h1 className="text-4xl sm:text-5xl font-medium text-primaryTextColor px-10 mt-20">
+        <h1 className="text-4xl sm:text-5xl font-medium text-primaryTextColor px-10 mt-16">
           Créa tu lista de regalos
         </h1>
 
@@ -50,7 +50,7 @@ const GiftsPage = async ({ searchParams }: { searchParams: GiftParams }) => {
             </TabsTrigger>
           </TabsList>
           <TabsContent value="predefinedGift">
-            <p className="text-secondaryTextColor text-xl mb-10 px-10">
+            <p className="text-secondaryTextColor text-lg sm:text-xl mb-10 px-10">
               Comenzá con una lista pre-definida, podes personalizarla más
               adelante
             </p>
@@ -71,7 +71,7 @@ const GiftsPage = async ({ searchParams }: { searchParams: GiftParams }) => {
             </div>
           </TabsContent>
           <TabsContent value="allGifts">
-            <p className="text-secondaryTextColor text-xl mb-10 px-10">
+            <p className="text-secondaryTextColor text-lg sm:text-xl mb-8 px-10">
               Elegí los productos que más te gusten y empezá a armar tu lista
             </p>
 

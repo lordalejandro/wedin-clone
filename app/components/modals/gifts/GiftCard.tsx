@@ -20,11 +20,11 @@ const GiftCard = ({ title, description, price }: GiftCard) => {
       <div className="flex flex-col gap-1 w-full">
         <h1 className="text-primaryTitleColor font-medium text-lg">{title}</h1>
 
-        <p className="text-sm">{description}</p>
-        <span className="text-black text-xl">Gs. {price}</span>
+        <p className="text-secondaryTextColor">{description}</p>
+        <span className="text-secondaryTitleColor text-xl">Gs. {price}</span>
       </div>
 
-      <div>
+      <div className="flex h-full items-end">
         <Button label="Añadir a mi lista" icon={IoAdd} />
       </div>
     </div>

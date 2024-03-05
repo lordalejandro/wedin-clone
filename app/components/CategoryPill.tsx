@@ -52,11 +52,14 @@ const CategoryPill: React.FC<CategoryPillProps> = ({
       className={`
         rounded-full
         py-1 px-4
+        whitespace-nowrap
+        overflow
         transition
         border
         cursor-pointer
         hover:bg-primaryBackgroundColor
         hover:text-white
+        break-normal
         ${selected ? "bg-primaryBackgroundColor" : "border-secondaryBorderColor"}
         ${selected ? "text-white" : "text-primaryTextColor"}
       `}

@@ -6,7 +6,7 @@ import SignInForm from "../components/SignInForm";
 
 const RegisterRight = () => {
   return (
-    <div className="w-full max-w-md p-8 space-y-6 bg-white text-black">
+    <div className="w-full max-w-md p-0 lg:p-8 space-y-6 bg-white text-black">
       <p className="text-2xl text-center font-semibold text-primaryTextColor">
         Registrate en 1 minuto y creá tu lista de regalos
       </p>

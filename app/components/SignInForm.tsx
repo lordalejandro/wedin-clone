@@ -37,7 +37,7 @@ export default function SignInForm() {
 
   return (
     <form className="flex flex-col gap-4" action={SignInEmail}>
-      <div className="grid w-full max-w-sm items-center gap-3">
+      <div className="grid w-full items-center gap-3">
         <Label htmlFor="email" className="pl-1 text-secondaryTextColor">
           Ingresa tu email
         </Label>

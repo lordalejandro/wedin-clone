@@ -1,8 +1,8 @@
 //import Input from "../components/inputs/Input";
 // import { Button } from "@/components/ui/button";
-import { getServerSession } from "next-auth";
-import { authOptions } from "../utils/auth";
-import { redirect } from "next/navigation";
+// import { getServerSession } from "next-auth";
+// import { authOptions } from "../utils/auth";
+// import { redirect } from "next/navigation";
 import Logo from "./Logo";
 import RegisterRight from "./RegisterRight";
 import RegisterLeft from "./RegisterLeft";
@@ -29,11 +29,11 @@ const SingUpPage = async () => {
         <Logo />
       </div>
 
-      <div className="flex items-center justify-center w-full gap-4">
-        <div className="w-3/5 flex items-center justify-center">
+      <div className="flex-col lg:flex-row flex items-center justify-center w-full gap-4">
+        <div className="w-3/5 hidden lg:flex items-center justify-center">
           <RegisterLeft />
         </div>
-        <div className="w-2/5 flex items-center justify-center">
+        <div className="w-full lg:w-2/5 flex items-center justify-center">
           <RegisterRight />
         </div>
       </div>
