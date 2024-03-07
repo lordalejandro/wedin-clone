@@ -1,18 +1,29 @@
 .
 ├── app
 │   ├── actions
-│   │   └── getCurrentUser.ts
+│   │   ├── getCategory.ts
+│   │   ├── getCurrentUser.ts
+│   │   ├── getGiftLists.ts
+│   │   └── getGift.ts
 │   ├── api
 │   │   └── auth
 │   │       └── [...nextauth]
+│   │           └── route.ts
 │   ├── components
 │   │   ├── Avatar.tsx
+│   │   ├── Button.tsx
+│   │   ├── CategoryPill.tsx
 │   │   ├── Container.tsx
+│   │   ├── EmptyState.tsx
+│   │   ├── Heading.tsx
 │   │   ├── inputs
 │   │   │   └── Input.tsx
 │   │   ├── LogoutButton.tsx
 │   │   ├── MenuItem.tsx
 │   │   ├── modals
+│   │   │   ├── gifts
+│   │   │   │   ├── GiftCard.tsx
+│   │   │   │   └── PredefinedGiftListCard.tsx
 │   │   │   └── Modal.tsx
 │   │   ├── navbar
 │   │   │   ├── Logo.tsx
@@ -23,41 +34,55 @@
 │   │   ├── SignInFacebook.tsx
 │   │   ├── SignInForm.tsx
 │   │   └── SignInGoogle.tsx
-│   ├── coupleDashboard
-│   │   └── page.tsx
-│   ├── createGift
+│   ├── create-gift
 │   │   └── page.tsx
 │   ├── favicon.ico
+│   ├── gifts
+│   │   ├── Categories.tsx
+│   │   └── page.tsx
 │   ├── globals.css
 │   ├── helpers
 │   │   └── userTypeHelper.ts
 │   ├── hoc
-│   │   └── withProtectedRoute.js
+│   │   └── withProtectedRoute.tsx
 │   ├── hooks
+│   │   ├── useFilterModal.ts
 │   │   ├── useLoginModal.ts
 │   │   ├── useOutsideClick.ts
 │   │   └── useRegisterModal.ts
-│   ├── inviteeDashboard
-│   │   └── page.tsx
 │   ├── layout.tsx
+│   ├── lists
+│   │   └── [listId]
+│   │       └── page.tsx
 │   ├── page.tsx
 │   ├── signup
-│   │   └── page.tsx
-│   └── utils
-│       ├── auth.ts
-│       └── db.ts
+│   │   ├── Logo.tsx
+│   │   ├── page.tsx
+│   │   ├── RegisterLeft.tsx
+│   │   └── RegisterRight.tsx
+│   ├── utils
+│   │   ├── auth.ts
+│   │   └── db.ts
+│   └── weddings
+│       └── [slug]
+│           └── page.tsx
 ├── components
 │   └── ui
 │       ├── button.tsx
 │       ├── card.tsx
+│       ├── carousel.tsx
+│       ├── dialog.tsx
 │       ├── input.tsx
 │       ├── label.tsx
+│       ├── switch.tsx
+│       ├── tabs.tsx
 │       ├── toaster.tsx
 │       ├── toast.tsx
 │       └── use-toast.ts
 ├── components.json
 ├── lib
 │   └── utils.ts
+├── middleware.ts
 ├── next.config.js
 ├── next.config.mjs
 ├── next-env.d.ts
@@ -65,17 +90,20 @@
 ├── package-lock.json
 ├── postcss.config.js
 ├── prisma
-│   └── schema.prisma
+│   ├── schema.prisma
+│   └── seed.ts
 ├── public
 │   ├── images
 │   │   ├── avatar.jpg
+│   │   ├── wedinBig.png
 │   │   └── wedin.png
 │   ├── next.svg
 │   └── vercel.svg
 ├── README.md
+├── seed.json
 ├── tailwind.config.js
 ├── tailwind.config.ts
 ├── tsconfig.json
 └── wedinCloneFileStructure
 
-24 directories, 54 files
+28 directories, 78 files
