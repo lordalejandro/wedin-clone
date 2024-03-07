@@ -1,19 +1,34 @@
 import { NextResponse, NextRequest } from "next/server";
-// Maybe add prisma check for authorizarion maybe ?
 
 export function middleware(request: NextRequest) {
   const sessionToken = request.cookies.get("next-auth.session-token");
+  const { pathname } = request.nextUrl;
 
-  if (sessionToken) {
-    //console.log("isAuthenticated");
-    return NextResponse.next();
+  if (!sessionToken && pathname === '/') {
+    return NextResponse.redirect(new URL('/gifts', request.url));
   }
 
-  // TODO: uncomment real path
-  return NextResponse.redirect(new URL("/", request.url));
-  //return NextResponse.next();
+  return NextResponse.next();
 }
 
 export const config = {
-  matcher: ["/lists/:path*"],
+  matcher: ['/'],
 };
+
+//OLD MIDDLEWARE
+/* import { NextResponse, NextRequest } from "next/server";
+
+export function middleware(request: NextRequest) {
+  const sessionToken = request.cookies.get("next-auth.session-token");
+  const { pathname } = request.nextUrl;
+
+  if (!sessionToken && pathname === '/') {
+    return NextResponse.redirect(new URL('/gifts', request.url));
+  }
+
+  return NextResponse.next();
+}
+
+export const config = {
+  matcher: ['/'],
+}; */

@@ -13,6 +13,9 @@
 /.next/
 /out/
 
+/wedinCloneFileStructure.txt
+/wedinCloneFileStructure
+
 # production
 /build
 
