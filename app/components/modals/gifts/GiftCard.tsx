@@ -60,18 +60,18 @@ const GiftCard = ({ title, description, price }: GiftCard) => {
           <Button label="Añadir a mi lista" icon={IoAdd} />
         </DialogTrigger>
         <DialogContent className="bg-white !rounded-2xl">
-          <div className="flex flex-col lg:flex-row items-center justify-center w-full gap-8 pt-6 lg:pt-0">
+          <div className="flex flex-col lg:flex-row items-center justify-center w-full gap-4 sm:gap-8 pt-6 lg:pt-0">
             <div className="w-full lg:w-1/2">
               <Carousel>
                 <CarouselContent>
                   <CarouselItem>
-                    <div className="border rounded-2xl w-full h-[358px] bg-secondaryBackgroundColor"></div>
+                    <div className="border rounded-2xl w-full h-[298px] sm:h-[358px] bg-secondaryBackgroundColor"></div>
                   </CarouselItem>
                   <CarouselItem>
-                    <div className="border rounded-2xl w-full h-[358px] bg-secondaryBackgroundColor"></div>
+                    <div className="border rounded-2xl w-full h-[298px] sm:h-[358px] bg-secondaryBackgroundColor"></div>
                   </CarouselItem>
                   <CarouselItem>
-                    <div className="border rounded-2xl w-full h-[358px] bg-secondaryBackgroundColor"></div>
+                    <div className="border rounded-2xl w-full h-[298px] sm:h-[358px] bg-secondaryBackgroundColor"></div>
                   </CarouselItem>
                 </CarouselContent>
                 <CarouselPrevious />
