@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React from "react";
 import Button from "../../Button";
@@ -37,10 +37,9 @@ const GiftCard = ({ title, description, price }: GiftCard) => {
       description: "El regalo ha sido añadido a tu lista de deseos.",
       action: <FaCheck color="green" fontSize={"36px"} />,
       className: "!bg-white",
-      //position: "top", 
+      //position: "top",
     });
   };
-
 
   return (
     <div className="border-2 rounded-xl py-6 px-4 flex flex-col gap-5 max-w-[435px]">
@@ -102,7 +101,11 @@ const GiftCard = ({ title, description, price }: GiftCard) => {
               </div>
 
               <DialogClose asChild>
-                <Button label="Añadir a mi lista" icon={IoAdd} onClick={addGiftToWishList} />
+                <Button
+                  label="Añadir a mi lista"
+                  icon={IoAdd}
+                  onClick={addGiftToWishList}
+                />
               </DialogClose>
             </div>
           </div>

@@ -1,21 +1,17 @@
-"use client"
+"use client";
 
 import { useRouter, useSearchParams } from "next/navigation";
 import qs from "query-string";
 import { useCallback } from "react";
 
 type CategoryPillProps = {
-  key: string
-  id: string
-  label: string
-  selected?: boolean
+  key: string;
+  id: string;
+  label: string;
+  selected?: boolean;
 };
 
-const CategoryPill: React.FC<CategoryPillProps> = ({
-  selected,
-  label,
-  id,
-}) => {
+const CategoryPill: React.FC<CategoryPillProps> = ({ selected, label, id }) => {
   const router = useRouter();
   const params = useSearchParams();
 
@@ -60,7 +56,9 @@ const CategoryPill: React.FC<CategoryPillProps> = ({
         hover:bg-primaryBackgroundColor
         hover:text-white
         break-normal
-        ${selected ? "bg-primaryBackgroundColor" : "border-secondaryBorderColor"}
+        ${
+          selected ? "bg-primaryBackgroundColor" : "border-secondaryBorderColor"
+        }
         ${selected ? "text-white" : "text-primaryTextColor"}
       `}
     >
