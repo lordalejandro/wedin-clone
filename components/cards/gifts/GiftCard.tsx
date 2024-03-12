@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import Button from "../../Button";
+import Button from "@/components/Button";
 import { IoAdd } from "react-icons/io5";
 import { FaCheck } from "react-icons/fa";
 import {
