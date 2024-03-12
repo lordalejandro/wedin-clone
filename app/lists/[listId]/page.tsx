@@ -1,4 +1,4 @@
-import Container from "@/app/components/Container";
+import Container from "@/components/Container";
 import { redirect } from "next/navigation";
 import { getCurrentUser } from "@/app/actions/getCurrentUser";
 

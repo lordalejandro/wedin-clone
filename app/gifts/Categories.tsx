@@ -1,7 +1,7 @@
 "use client"
 
 import { useSearchParams } from "next/navigation";
-import CategoryPill from "../components/CategoryPill";
+import CategoryPill from "../../components/CategoryPill";
 
 type Category = {
   categories: {

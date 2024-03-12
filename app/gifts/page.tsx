@@ -1,8 +1,8 @@
 import React from "react";
 import { getCurrentUser } from "@/app/actions/getCurrentUser";
-import Container from "@/app/components/Container";
-import PredefinedGiftListCard from "@/app/components/modals/gifts/PredefinedGiftListCard";
-import EmptyState from "@/app/components/EmptyState";
+import Container from "@/components/Container";
+import PredefinedGiftListCard from "@/components/cards/gifts/PredefinedGiftListCard";
+import EmptyState from "@/components/EmptyState";
 import { IoGiftOutline } from "react-icons/io5";
 import { PiCouchLight } from "react-icons/pi";
 import { IoAdd } from "react-icons/io5";
@@ -10,7 +10,7 @@ import { getGiftLists } from "@/app/actions/getGiftLists";
 import { getGift, GiftParams } from "@/app/actions/getGift";
 import { getCategory } from "@/app/actions/getCategory";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import GiftCard from "../components/modals/gifts/GiftCard";
+import GiftCard from "@/components/cards/gifts/GiftCard";
 import Categories from "./Categories";
 
 const GiftsPage = async ({ searchParams }: { searchParams: GiftParams }) => {

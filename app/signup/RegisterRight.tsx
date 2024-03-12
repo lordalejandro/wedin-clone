@@ -1,8 +1,8 @@
 "use client";
 
-import SingInFacebook from "../components/SignInFacebook";
-import SingInGoogle from "../components/SignInGoogle";
-import SignInForm from "../components/SignInForm";
+import SingInFacebook from "@/components/signin/SignInFacebook";
+import SingInGoogle from "@/components/signin/SignInGoogle";
+import SignInForm from "@/components/signin/SignInForm";
 
 const RegisterRight = () => {
   return (
