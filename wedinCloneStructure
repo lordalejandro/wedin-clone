@@ -1,39 +1,16 @@
 .
 ├── app
 │   ├── actions
-│   │   ├── getCategory.ts
 │   │   ├── getCurrentUser.ts
-│   │   ├── getGiftLists.ts
-│   │   └── getGift.ts
+│   │   ├── gift
+│   │   │   ├── getCategory.ts
+│   │   │   └── getGift.ts
+│   │   └── giftLists
+│   │       └── getGiftLists.ts
 │   ├── api
 │   │   └── auth
 │   │       └── [...nextauth]
 │   │           └── route.ts
-│   ├── components
-│   │   ├── Avatar.tsx
-│   │   ├── Button.tsx
-│   │   ├── CategoryPill.tsx
-│   │   ├── Container.tsx
-│   │   ├── EmptyState.tsx
-│   │   ├── Heading.tsx
-│   │   ├── inputs
-│   │   │   └── Input.tsx
-│   │   ├── LogoutButton.tsx
-│   │   ├── MenuItem.tsx
-│   │   ├── modals
-│   │   │   ├── gifts
-│   │   │   │   ├── GiftCard.tsx
-│   │   │   │   └── PredefinedGiftListCard.tsx
-│   │   │   └── Modal.tsx
-│   │   ├── navbar
-│   │   │   ├── Logo.tsx
-│   │   │   ├── Navbar.tsx
-│   │   │   └── UserMenu.tsx
-│   │   ├── providers
-│   │   │   └── ToasterProvider.tsx
-│   │   ├── SignInFacebook.tsx
-│   │   ├── SignInForm.tsx
-│   │   └── SignInGoogle.tsx
 │   ├── create-gift
 │   │   └── page.tsx
 │   ├── favicon.ico
@@ -67,7 +44,33 @@
 │       └── [slug]
 │           └── page.tsx
 ├── components
+│   ├── Avatar.tsx
+│   ├── Button.tsx
+│   ├── cards
+│   │   ├── gifts
+│   │   │   ├── GiftCard.tsx
+│   │   │   └── PredefinedGiftListCard.tsx
+│   │   └── Modal.tsx
+│   ├── CategoryPill.tsx
+│   ├── Container.tsx
+│   ├── EmptyState.tsx
+│   ├── Heading.tsx
+│   ├── inputs
+│   │   └── Input.tsx
+│   ├── MenuItem.tsx
+│   ├── navbar
+│   │   ├── Logo.tsx
+│   │   ├── Navbar.tsx
+│   │   └── UserMenu.tsx
+│   ├── providers
+│   │   └── ToasterProvider.tsx
+│   ├── signin
+│   │   ├── LogoutButton.tsx
+│   │   ├── SignInFacebook.tsx
+│   │   ├── SignInForm.tsx
+│   │   └── SignInGoogle.tsx
 │   └── ui
+│       ├── avatar.tsx
 │       ├── button.tsx
 │       ├── card.tsx
 │       ├── carousel.tsx
@@ -104,6 +107,6 @@
 ├── tailwind.config.js
 ├── tailwind.config.ts
 ├── tsconfig.json
-└── wedinCloneFileStructure
+└── wedinCloneStructure
 
-28 directories, 78 files
+30 directories, 79 files

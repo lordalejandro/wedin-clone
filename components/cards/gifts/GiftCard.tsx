@@ -28,18 +28,42 @@ type GiftCard = {
   id: string;
 };
 
-const GiftCard = ({ title, description, price }: GiftCard) => {
+const GiftCard = ({ title, description, price, id }: GiftCard) => {
   const { toast } = useToast();
 
-  const addGiftToWishList = () => {
-    toast({
-      title: "Regalo añadido",
-      description: "El regalo ha sido añadido a tu lista de deseos.",
-      action: <FaCheck color="green" fontSize={"36px"} />,
-      className: "!bg-white",
-      //position: "top",
-    });
+  const addGiftToWishList = async () => {
+    const wishlistId = '0';
+    try {
+      const response = await fetch(`/api/wishlist/${wishlistId}/addGiftToWishList`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          giftId: id,
+        }),
+      });
+
+      if (response.ok) {
+        const result = await response.json();
+        toast({
+          title: "Success",
+          description: "Gift added to your wishlist.",
+          action: <FaCheck color="green" fontSize={"36px"} />,
+        });
+      } else {
+        throw new Error('Failed to add gift to wishlist');
+      }
+    } catch (error) {
+      console.error(error);
+      toast({
+        title: "Error",
+        description: "Failed to add gift to wishlist.",
+        action: <FaCheck color="red" fontSize={"36px"} />,
+      });
+    }
   };
+
 
   return (
     <div className="border-2 rounded-xl py-6 px-4 flex flex-col gap-5 max-w-[435px]">
