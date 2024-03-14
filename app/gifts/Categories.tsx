@@ -2,21 +2,16 @@
 
 import { useSearchParams } from "next/navigation";
 import CategoryPill from "../components/CategoryPill";
+import { Category } from "@prisma/client";
 
-type Category = {
-  categories:
-    | {
-        id: string;
-        name: string;
-      }[]
-    | null;
+type CategoriesProps = {
+  categories: Category[];
 };
 
-const Categories = ({ categories }: Category) => {
-  //const categories = await getCategory();
+const Categories = ({ categories }: CategoriesProps) => {
   const params = useSearchParams();
   const category_url = params?.get("category");
-  //console.log(category_url);
+
   return (
     <div className="px-10 flex items-start gap-3 mb-8 sm:mb-10 overflow-x-auto overflow-y-hidden">
       {categories?.map((category) => (

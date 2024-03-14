@@ -1,6 +1,6 @@
+import { getCurrentUser } from "@/app/actions/getCurrentUser";
 import Container from "@/app/components/Container";
 import { redirect } from "next/navigation";
-import { getCurrentUser } from "@/app/actions/getCurrentUser";
 
 type Props = {
   params: {
