@@ -358,7 +358,7 @@ const seedData = {
     ],
     "weddings": [
         {
-            "coupleNames": "User A & User B",
+            "coupleNames": "Musk & Cuban",
             "date": "2024-06-01",
             "location": "Dreamy Venue",
         }
@@ -375,6 +375,9 @@ async function main() {
     const categoryData = seedData.categories;
     const listsData = seedData.lists;
     const giftsData = seedData.gifts;
+    const usersData = seedData.users;
+    const weddingsData = seedData.weddings;
+    const wishListsData = seedData.wishLists;
 
     try {
         for (const category of categoryData) {
@@ -446,6 +449,35 @@ async function main() {
                 }
             });
         }
+
+        let createdUsers = [];
+        for (const user of usersData) {
+            const createdUser = await prismaClient.user.create({
+                data: {
+                    name: user.name,
+                    email: user.email,
+                    user_types: "COUPLE",
+                },
+            });
+            createdUsers.push(createdUser);
+        }
+
+        const weddingData = weddingsData[0];
+        const wedding = await prismaClient.wedding.create({
+            data: {
+                date: new Date(weddingData.date),
+                location: weddingData.location,
+            },
+        });
+
+        const wishListData = wishListsData[0];
+        const wishList = await prismaClient.wishList.create({
+            data: {
+                item: wishListData.name,
+                description: "A sample wishlist description", 
+                weddingId: wedding.id, 
+            },
+        });
 
         console.log("Data seeded successfully!");
     } catch (error) {

@@ -13,8 +13,10 @@
 /.next/
 /out/
 
-/wedinCloneFileStructure.txt
-/wedinCloneFileStructure
+wedinCloneFileStructure.txt
+wedinCloneFileStructure
+wedinStructure.txt
+wedinStructure
 
 # production
 /build
