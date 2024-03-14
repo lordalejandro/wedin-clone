@@ -12,14 +12,16 @@ import { getCategory } from "@/app/actions/gift/getCategory";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import GiftCard from "@/components/cards/gifts/GiftCard";
 import Categories from "./Categories";
+import { getWishList } from "../actions/wishList/getWishList";
 
 const GiftsPage = async ({ searchParams }: { searchParams: GiftParams }) => {
   const currentUser = await getCurrentUser();
   const giftLists = await getGiftLists();
   const gifts = await getGift({ searchParams });
   const categories = await getCategory();
+  const wishList = await getWishList();
 
-  //console.log(gifts);
+  //console.log(wishList[0]?.id);
 
   if (giftLists?.length === 0) return <EmptyState showReset />;
   if (gifts?.length === 0) return <EmptyState showReset />;
@@ -87,6 +89,7 @@ const GiftsPage = async ({ searchParams }: { searchParams: GiftParams }) => {
                     description={gift.description}
                     price={gift.price}
                     id={gift.id}
+                    wishListId={`${wishList[0].id}`}
                   />
                 ))}
               </div>

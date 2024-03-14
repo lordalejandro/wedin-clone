@@ -21,20 +21,20 @@ import {
 import { useToast } from "@/components/ui/use-toast";
 
 type GiftCard = {
-  img: string;
-  title: string;
-  description: string;
-  price: string;
-  id: string;
+  img: string
+  title: string
+  description: string
+  price: string
+  id: string
+  wishListId: string
 };
 
-const GiftCard = ({ title, description, price, id }: GiftCard) => {
+const GiftCard = ({ title, description, price, id, wishListId }: GiftCard) => {
   const { toast } = useToast();
 
   const addGiftToWishList = async () => {
-    const wishlistId = '0'; 
     try {
-      const response = await fetch(`/api/wishlist/${wishlistId}/addGiftToWishList`, {
+      const response = await fetch(`/api/wishlist/${wishListId}/addGiftToWishList`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
