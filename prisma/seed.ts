@@ -1,4 +1,5 @@
 const { PrismaClient } = require('@prisma/client');
+const prismaClient = new PrismaClient();
 
 const seedData = {
     "categories": [
@@ -344,11 +345,31 @@ const seedData = {
             "price": 320,
             "categoryId": 3
         }
-    ]
+    ],
+    "users": [
+        {
+            "email": "musk@example.com",
+            "name": "Elon M",
+        },
+        {
+            "email": "cuban@example.com",
+            "name": "Mark C",
+        }
+    ],
+    "weddings": [
+        {
+            "coupleNames": "User A & User B",
+            "date": "2024-06-01",
+            "location": "Dreamy Venue",
+        }
+    ],
+    "wishLists": [
+        {
+            "name": "Our Dreamy Wedding",
+            "weddingId": 1,
+        }
+    ],
 }
-
-
-const prismaClient = new PrismaClient();
 
 async function main() {
     const categoryData = seedData.categories;
@@ -442,3 +463,57 @@ main()
     .finally(async () => {
         await prismaClient.$disconnect();
     });
+
+/* OLD TO ADD WEDDING, USERS, AND WISH LIST */
+/* 
+const { PrismaClient } = require('@prisma/client');
+const prismaClient   = new PrismaClient();
+
+async function main() {
+  // Create Users
+  const userA = await prismaClient.user.create({
+    data: {
+      email: "usera@example.com",
+      name: "User A",
+      user_types: "COUPLE",
+    },
+  });
+
+  const userB = await prismaClient.user.create({
+    data: {
+      email: "userb@example.com",
+      name: "User B",
+      user_types: "COUPLE",
+    },
+  });
+
+  // Since there's no direct relation to users in the Wedding model,
+  // the Wedding creation doesn't explicitly link to users
+  const wedding = await prismaClient.wedding.create({
+    data: {
+      date: new Date("2024-06-01"),
+      location: "Dreamy Venue",
+    },
+  });
+
+  // Create a WishList and link it to the Wedding
+  const wishList = await prismaClient.wishList.create({
+    data: {
+      item: "Our Dreamy Wedding",
+      description: "A wishlist for our dream wedding",
+      weddingId: wedding.id,
+    },
+  });
+
+  console.log("Seeding completed");
+}
+
+main()
+  .catch((e) => {
+    console.error(e);
+    process.exit(1);
+  })
+  .finally(async () => {
+    await prismaClient.$disconnect();
+  }); 
+*/
