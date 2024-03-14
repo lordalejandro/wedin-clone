@@ -43,6 +43,7 @@ const GiftCard = ({ title, description, price, id, wishListId }: GiftCard) => {
           giftId: id,
         }),
       });
+      //console.log(response)
   
       if (response.ok) {
         const result = await response.json();
@@ -60,6 +61,7 @@ const GiftCard = ({ title, description, price, id, wishListId }: GiftCard) => {
         title: "Error",
         description: "Failed to add gift to wishlist.",
         action: <FaCheck color="red" fontSize={"36px"} />,
+        className: 'bg-white'
       });
     }
   };
