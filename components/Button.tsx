@@ -23,7 +23,11 @@ const Button: React.FC<Props> = ({
       onClick={onClick}
       className={`relative disabled:opacity-70 disabled:cursor-not-allowed rounded-full hover:opacity-80 hover transition w-full flex items-center justify-center gap-3
         ${outline ? "bg-white" : "bg-primaryBackgroundColor"}
-        ${outline ? "border-primaryBackgroundColor border-2" : "bg-primaryBackgroundColor"}
+        ${
+          outline
+            ? "border-primaryBackgroundColor border-2"
+            : "bg-primaryBackgroundColor"
+        }
         ${outline ? "text-primaryTextColor" : "text-white"}
         ${small ? "py-1.5" : "py-2"}
         ${small ? "text-md" : "text-md"}

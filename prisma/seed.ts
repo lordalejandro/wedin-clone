@@ -379,64 +379,61 @@ async function main() {
     const weddingsData = seedData.weddings;
     const wishListsData = seedData.wishLists;
 
-    try {
-        for (const category of categoryData) {
-            await prismaClient.category.create({
-                data: {
-                    name: category.name
-                }
-            });
-        }
+  try {
+    for (const category of categoryData) {
+      await prismaClient.category.create({
+        data: {
+          name: category.name,
+        },
+      });
+    }
 
-        for (const list of listsData) {
-            await prismaClient.giftList.create({
-                data: {
-                    name: list.name,
-                    description: list.description,
-                    isDefault: list.isDefault,
-                    quantity: list.quantity,
-                    totalPrice: list.totalPrice,
-                }
-            });
-        }
+    for (const list of listsData) {
+      await prismaClient.giftList.create({
+        data: {
+          name: list.name,
+          description: list.description,
+          isDefault: list.isDefault,
+          quantity: list.quantity,
+          totalPrice: list.totalPrice,
+        },
+      });
+    }
 
-        for (const gift of giftsData) {
-            const categoryId = categoryData.find(category => {
-                return category['id'] === gift.categoryId
-            })
+    for (const gift of giftsData) {
+      const categoryId = categoryData.find((category) => {
+        return category["id"] === gift.categoryId;
+      });
 
-            const giftListId = listsData.find(list => {
-                return list['id'] === gift.giftListId
-            })
+      const giftListId = listsData.find((list) => {
+        return list["id"] === gift.giftListId;
+      });
 
-            //console.log(categoryId);
+      if (categoryId === null || categoryId === undefined) {
+        console.error(`Category with ID ${gift.categoryId} not found`);
+        return;
+      }
+      if (categoryId["name"] === null || categoryId["name"] === undefined) {
+        console.error(`Category with ID ${gift.categoryId} not found`);
+        return;
+      }
 
-            if (categoryId === null || categoryId === undefined) {
-                console.error(`Category with ID ${gift.categoryId} not found`);
-                return;
-            }
-            if (categoryId['name'] === null || categoryId['name'] === undefined) {
-                console.error(`Category with ID ${gift.categoryId} not found`);
-                return;
-            }
+      if (giftListId === null || giftListId === undefined) {
+        console.error(`Gift List with ID ${gift.giftListId} not found`);
+        return;
+      }
+      if (giftListId["name"] === null || giftListId["name"] === undefined) {
+        console.error(`Gift List with ID ${gift.giftListId} not found`);
+        return;
+      }
 
-            if (giftListId === null || giftListId === undefined) {
-                console.error(`Gift List with ID ${gift.giftListId} not found`);
-                return;
-            }
-            if (giftListId['name'] === null || giftListId['name'] === undefined) {
-                console.error(`Gift List with ID ${gift.giftListId} not found`);
-                return;
-            }
+      const category = await prismaClient.category.findFirst({
+        where: { name: categoryId["name"] },
+      });
 
-
-            const category = await prismaClient.category.findFirst({
-                where: { name: categoryId['name'] },
-            });
-
-            const giftList = await prismaClient.giftList.findFirst({
-                where: { name: giftListId['name'] },
-            });
+      const giftList = await prismaClient.giftList.findFirst({
+        where: { name: giftListId["name"] },
+      });
 
             await prismaClient.gift.create({
                 data: {
@@ -479,12 +476,12 @@ async function main() {
             },
         });
 
-        console.log("Data seeded successfully!");
-    } catch (error) {
-        console.error("Error seeding data:", error);
-    } finally {
-        await prismaClient.$disconnect();
-    }
+    console.log("Data seeded successfully!");
+  } catch (error) {
+    console.error("Error seeding data:", error);
+  } finally {
+    await prismaClient.$disconnect();
+  }
 }
 
 main()
@@ -495,57 +492,3 @@ main()
     .finally(async () => {
         await prismaClient.$disconnect();
     });
-
-/* OLD TO ADD WEDDING, USERS, AND WISH LIST */
-/* 
-const { PrismaClient } = require('@prisma/client');
-const prismaClient   = new PrismaClient();
-
-async function main() {
-  // Create Users
-  const userA = await prismaClient.user.create({
-    data: {
-      email: "usera@example.com",
-      name: "User A",
-      user_types: "COUPLE",
-    },
-  });
-
-  const userB = await prismaClient.user.create({
-    data: {
-      email: "userb@example.com",
-      name: "User B",
-      user_types: "COUPLE",
-    },
-  });
-
-  // Since there's no direct relation to users in the Wedding model,
-  // the Wedding creation doesn't explicitly link to users
-  const wedding = await prismaClient.wedding.create({
-    data: {
-      date: new Date("2024-06-01"),
-      location: "Dreamy Venue",
-    },
-  });
-
-  // Create a WishList and link it to the Wedding
-  const wishList = await prismaClient.wishList.create({
-    data: {
-      item: "Our Dreamy Wedding",
-      description: "A wishlist for our dream wedding",
-      weddingId: wedding.id,
-    },
-  });
-
-  console.log("Seeding completed");
-}
-
-main()
-  .catch((e) => {
-    console.error(e);
-    process.exit(1);
-  })
-  .finally(async () => {
-    await prismaClient.$disconnect();
-  }); 
-*/

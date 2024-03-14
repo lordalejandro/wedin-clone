@@ -6,10 +6,9 @@ export type GiftParams = {
 
 export async function getGift({ searchParams }: { searchParams?: GiftParams }) {
   try {
-
     let query: any = {};
     const { category } = searchParams ?? {};
-    
+
     //console.log("category id:", category)
 
     if (category) {
@@ -21,7 +20,7 @@ export async function getGift({ searchParams }: { searchParams?: GiftParams }) {
       orderBy: {
         createdAt: "desc",
       },
-    });  
+    });
 
     /* console.log("Gifts from database:", gifts) */
 
