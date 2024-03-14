@@ -1,25 +1,19 @@
-import React from "react";
-import { getCurrentUser } from "@/app/actions/getCurrentUser";
-import Container from "@/app/components/Container";
-import PredefinedGiftListCard from "@/app/components/modals/gifts/PredefinedGiftListCard";
-import EmptyState from "@/app/components/EmptyState";
-import { IoGiftOutline } from "react-icons/io5";
-import { PiCouchLight } from "react-icons/pi";
-import { IoAdd } from "react-icons/io5";
-import { getGiftLists } from "@/app/actions/getGiftLists";
-import { getGift, GiftParams } from "@/app/actions/getGift";
 import { getCategory } from "@/app/actions/getCategory";
+import { getGift, GiftParams } from "@/app/actions/getGift";
+import { getGiftLists } from "@/app/actions/getGiftLists";
+import Container from "@/app/components/Container";
+import EmptyState from "@/app/components/EmptyState";
+import PredefinedGiftListCard from "@/app/components/modals/gifts/PredefinedGiftListCard";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { IoAdd, IoGiftOutline } from "react-icons/io5";
+import { PiCouchLight } from "react-icons/pi";
 import GiftCard from "../components/modals/gifts/GiftCard";
 import Categories from "./Categories";
 
 const GiftsPage = async ({ searchParams }: { searchParams: GiftParams }) => {
-  const currentUser = await getCurrentUser();
   const giftLists = await getGiftLists();
   const gifts = await getGift({ searchParams });
   const categories = await getCategory();
-
-  //console.log(gifts);
 
   if (giftLists?.length === 0) return <EmptyState showReset />;
   if (gifts?.length === 0) return <EmptyState showReset />;
@@ -59,12 +53,7 @@ const GiftsPage = async ({ searchParams }: { searchParams: GiftParams }) => {
                 {giftLists?.map((giftList) => (
                   <PredefinedGiftListCard
                     key={giftList.id}
-                    title={giftList.name}
-                    description={giftList.description}
-                    img={""}
-                    price={giftList.totalPrice}
-                    id={giftList.id}
-                    items={giftList.quantity}
+                    giftList={giftList}
                   />
                 ))}
               </div>
@@ -75,7 +64,7 @@ const GiftsPage = async ({ searchParams }: { searchParams: GiftParams }) => {
               Elegí los productos que más te gusten y empezá a armar tu lista
             </p>
 
-            <Categories categories={categories} />
+            {categories && <Categories categories={categories} />}
 
             <div className="flex justify-center items-center">
               <div className="px-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 3xl:grid-cols-5 gap-8">

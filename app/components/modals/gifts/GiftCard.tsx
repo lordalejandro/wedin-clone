@@ -1,16 +1,5 @@
 "use client";
 
-import React from "react";
-import Button from "../../Button";
-import { IoAdd } from "react-icons/io5";
-import { FaCheck } from "react-icons/fa";
-import {
-  Dialog,
-  DialogContent,
-  DialogTrigger,
-  DialogClose,
-} from "@/components/ui/dialog";
-import { Switch } from "@/components/ui/switch";
 import {
   Carousel,
   CarouselContent,
@@ -18,7 +7,17 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { Switch } from "@/components/ui/switch";
 import { useToast } from "@/components/ui/use-toast";
+import { FaCheck } from "react-icons/fa";
+import { IoAdd } from "react-icons/io5";
+import Button from "../../Button";
 
 type GiftCard = {
   img: string;
@@ -37,7 +36,6 @@ const GiftCard = ({ title, description, price }: GiftCard) => {
       description: "El regalo ha sido añadido a tu lista de deseos.",
       action: <FaCheck color="green" fontSize={"36px"} />,
       className: "!bg-white",
-      //position: "top",
     });
   };
 
