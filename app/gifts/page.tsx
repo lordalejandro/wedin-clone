@@ -1,18 +1,18 @@
 import React from "react";
-import { getCurrentUser } from "@/app/actions/getCurrentUser";
+import { getCurrentUser } from "@/actions/getCurrentUser";
 import Container from "@/components/Container";
 import PredefinedGiftListCard from "@/components/cards/gifts/PredefinedGiftListCard";
 import EmptyState from "@/components/EmptyState";
 import { IoGiftOutline } from "react-icons/io5";
 import { PiCouchLight } from "react-icons/pi";
 import { IoAdd } from "react-icons/io5";
-import { getGiftLists } from "@/app/actions/giftLists/getGiftLists";
-import { getGift, GiftParams } from "@/app/actions/gift/getGift";
-import { getCategory } from "@/app/actions/gift/getCategory";
+import { getGiftLists } from "@/actions/giftLists/getGiftLists";
+import { getGift, GiftParams } from "@/actions/gift/getGift";
+import { getCategory } from "@/actions/gift/getCategory";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import GiftCard from "@/components/cards/gifts/GiftCard";
 import Categories from "./Categories";
-import { getWishList } from "../actions/wishList/getWishList";
+import { getWishList } from "@/actions/wishList/getWishList";
 
 const GiftsPage = async ({ searchParams }: { searchParams: GiftParams }) => {
   const currentUser = await getCurrentUser();

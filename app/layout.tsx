@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { getCurrentUser } from "@/app/actions/getCurrentUser";
+import { getCurrentUser } from "@/actions/getCurrentUser";
 import { Toaster } from "@/components/ui/toaster";
 import NavBar from "@/components/navbar/Navbar";
 import { Inter } from "next/font/google";

@@ -1,4 +1,4 @@
-import prisma from "@/app/utils/db";
+import prisma from "@/db/client";
 
 type WishListParams = {
   giftId: string

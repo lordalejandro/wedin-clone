@@ -1,6 +1,6 @@
-import prisma from "../utils/db";
+import prisma from "@/db/client";
 import { getServerSession } from "next-auth/next";
-import { authOptions } from "../utils/auth";
+import { authOptions } from "@/utils/auth";
 
 export async function getSession() {
   return await getServerSession(authOptions);

@@ -1,4 +1,4 @@
-import prisma from "@/app/utils/db";
+import prisma from "@/db/client";
 
 export type GiftParams = {
   category?: string;

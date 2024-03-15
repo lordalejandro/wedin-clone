@@ -1,5 +1,5 @@
 import Container from "../components/Container";
-import { getCurrentUser } from "./actions/getCurrentUser";
+import { getCurrentUser } from "@/actions/getCurrentUser";
 import { IoGiftOutline } from "react-icons/io5";
 import { PiCouchLight } from "react-icons/pi";
 import { IoAdd } from "react-icons/io5";
