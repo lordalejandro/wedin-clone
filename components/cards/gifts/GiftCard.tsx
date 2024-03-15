@@ -1,71 +1,58 @@
-"use client";
+'use client';
 
-import React from "react";
-import Button from "@/components/Button";
-import { IoAdd } from "react-icons/io5";
-import { FaCheck } from "react-icons/fa";
+import React from 'react';
+import Button from '@/components/Button';
+import { IoAdd } from 'react-icons/io5';
+import { FaCheck } from 'react-icons/fa';
 import {
   Dialog,
   DialogContent,
   DialogTrigger,
   DialogClose,
-} from "@/components/ui/dialog";
-import { Switch } from "@/components/ui/switch";
+} from '@/components/ui/dialog';
+import { Switch } from '@/components/ui/switch';
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "@/components/ui/carousel";
-import { useToast } from "@/components/ui/use-toast";
+} from '@/components/ui/carousel';
+import { useToast } from '@/components/ui/use-toast';
+import addGiftToWishlist from '@/actions/wishList/addGiftToWishList';
 
 type GiftCard = {
-  img: string
-  title: string
-  description: string
-  price: string
-  id: string
-  wishListId: string
+  img: string;
+  title: string;
+  description: string;
+  price: string;
+  id: string;
+  wishListId: string;
 };
 
 const GiftCard = ({ title, description, price, id, wishListId }: GiftCard) => {
   const { toast } = useToast();
 
-  const addGiftToWishList = async () => {
+  const addGiftToWishListHandler = async () => {
     try {
-      const response = await fetch(`/api/wishlist/${wishListId}/addGiftToWishList`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          giftId: id,
-        }),
-      });
-      //console.log(response)
-  
-      if (response.ok) {
-        const result = await response.json();
+      const result = await addGiftToWishlist(id, wishListId);
+      /* if (result.ok) {
         toast({
-          title: "Success",
-          description: "Gift added to your wishlist.",
-          action: <FaCheck color="green" fontSize={"36px"} />,
+          title: 'Success',
+          description: 'Gift added to your wishlist.',
+          action: <FaCheck color="green" fontSize={'36px'} />,
         });
-      } else {
-        throw new Error('Failed to add gift to wishlist');
-      }
+      } */
     } catch (error) {
       console.error(error);
       toast({
-        title: "Error",
-        description: "Failed to add gift to wishlist.",
-        action: <FaCheck color="red" fontSize={"36px"} />,
-        className: 'bg-white'
+        title: 'Error',
+        description: 'Failed to add gift to wishlist.',
+        action: <FaCheck color="red" fontSize={'36px'} />,
+        className: 'bg-white',
       });
     }
   };
-  
 
   return (
     <div className="border-2 rounded-xl py-6 px-4 flex flex-col gap-5 max-w-[435px]">
@@ -121,7 +108,7 @@ const GiftCard = ({ title, description, price, id, wishListId }: GiftCard) => {
                   <Switch id="group-gift" />
                 </div>
                 <span className="text-3xl text-secondaryTitleColor font-medium">
-                  {" "}
+                  {' '}
                   Gs. {price}
                 </span>
               </div>
@@ -130,7 +117,7 @@ const GiftCard = ({ title, description, price, id, wishListId }: GiftCard) => {
                 <Button
                   label="Añadir a mi lista"
                   icon={IoAdd}
-                  onClick={addGiftToWishList}
+                  onClick={() => addGiftToWishlist(id, wishListId)}
                 />
               </DialogClose>
             </div>
