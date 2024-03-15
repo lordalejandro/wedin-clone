@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import prisma from '@/utils/db';
+import prisma from '@/db/client';
 
 export default async function handle(req: NextApiRequest, res: NextApiResponse) {
   const wishListId = req.query.wishListId as string;
