@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import { useRouter } from "next/navigation";
-import { FC } from "react";
+import { useRouter } from 'next/navigation';
+import { FC } from 'react';
 
-import Button from "./Button";
-import Heading from "./Heading";
+import { Button } from '@/components/ui/button';
+import Heading from './Heading';
 
 type Props = {
   title?: string;
@@ -13,8 +13,8 @@ type Props = {
 };
 
 const EmptyState: FC<Props> = ({
-  title = "Something bad happened",
-  subtitle = "Try changing yourself",
+  title = 'Something bad happened',
+  subtitle = 'Try changing yourself',
   showReset,
 }) => {
   const router = useRouter();
@@ -24,11 +24,9 @@ const EmptyState: FC<Props> = ({
       <Heading center title={title} subtitle={subtitle} />
       <div className="w-48 mt-4">
         {showReset && (
-          <Button
-            outline
-            label="Go to home page"
-            onClick={() => router.push("/")}
-          />
+          <Button variant="outline" onClick={() => router.push('/')}>
+            Volver al inicio
+          </Button>
         )}
       </div>
     </div>

@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { GoArrowRight } from 'react-icons/go';
-import Button from '../../Button';
+import { Button } from "@/components/ui/button"
 import { GiftList } from '@prisma/client';
 
 type GiftListCard = {
@@ -27,7 +27,10 @@ const PredefinedGiftListCard = ({ giftList }: GiftListCard) => {
       </div>
 
       <Link href={`/lists/${id}`}>
-        <Button label="Ver lista" icon={GoArrowRight} />
+        <Button variant='primaryButton'>
+          Ver lista
+          <GoArrowRight size={22} />
+        </Button>
       </Link>
     </div>
   );

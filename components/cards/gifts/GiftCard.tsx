@@ -1,6 +1,5 @@
 'use client';
 
-import Button from '@/components/Button';
 import {
   Carousel,
   CarouselContent,
@@ -19,6 +18,7 @@ import { useToast } from '@/components/ui/use-toast';
 import { Gift } from '@prisma/client';
 import { FaCheck } from 'react-icons/fa';
 import { IoAdd } from 'react-icons/io5';
+import { Button } from '@/components/ui/button';
 
 type GiftCardProps = {
   gift: Gift;
@@ -74,8 +74,11 @@ const GiftCard = ({ gift }: GiftCardProps) => {
       </div>
 
       <Dialog>
-        <DialogTrigger className="flex h-full items-end">
-          <Button label="Añadir a mi lista" icon={IoAdd} />
+        <DialogTrigger asChild className=''>
+          <Button variant='primaryButton'>
+            Añadir a mi lista
+            <IoAdd size={22} />
+          </Button>
         </DialogTrigger>
         <DialogContent className="bg-white !rounded-2xl">
           <div className="flex flex-col lg:flex-row items-center justify-center w-full gap-4 sm:gap-8 pt-6 lg:pt-0">
@@ -121,10 +124,12 @@ const GiftCard = ({ gift }: GiftCardProps) => {
 
               <DialogClose asChild>
                 <Button
-                  label="Añadir a mi lista"
-                  icon={IoAdd}
+                  variant="primaryButton"
                   onClick={addGiftToWishListHandler}
-                />
+                >
+                  Añadir a mi lista
+                  <IoAdd size={22} />
+                </Button>
               </DialogClose>
             </div>
           </div>
