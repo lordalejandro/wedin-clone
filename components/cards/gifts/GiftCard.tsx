@@ -1,16 +1,6 @@
 'use client';
 
-import React from 'react';
 import Button from '@/components/Button';
-import { IoAdd } from 'react-icons/io5';
-import { FaCheck } from 'react-icons/fa';
-import {
-  Dialog,
-  DialogContent,
-  DialogTrigger,
-  DialogClose,
-} from '@/components/ui/dialog';
-import { Switch } from '@/components/ui/switch';
 import {
   Carousel,
   CarouselContent,
@@ -18,20 +8,25 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '@/components/ui/carousel';
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogTrigger,
+} from '@/components/ui/dialog';
+import { Switch } from '@/components/ui/switch';
 import { useToast } from '@/components/ui/use-toast';
-//import addGiftToWishlist from '@/actions/wishList/addGiftToWishList';
+import { Gift } from '@prisma/client';
+import { FaCheck } from 'react-icons/fa';
+import { IoAdd } from 'react-icons/io5';
 
-type GiftCard = {
-  img: string;
-  title: string;
-  description: string;
-  price: string;
-  id: string;
-  wishListId: string;
+type GiftCardProps = {
+  gift: Gift;
 };
 
-const GiftCard = ({ title, description, price, id, wishListId }: GiftCard) => {
+const GiftCard = ({ gift }: GiftCardProps) => {
   const { toast } = useToast();
+  const { name, description, price, id, wishListId } = gift;
 
   const addGiftToWishListHandler = async () => {
     try {
@@ -72,7 +67,7 @@ const GiftCard = ({ title, description, price, id, wishListId }: GiftCard) => {
       </div>
 
       <div className="flex flex-col gap-1 w-full">
-        <h1 className="text-primaryTitleColor font-medium text-lg">{title}</h1>
+        <h1 className="text-primaryTitleColor font-medium text-lg">{name}</h1>
 
         <p className="text-secondaryTextColor">{description}</p>
         <span className="text-secondaryTitleColor text-xl">Gs. {price}</span>
@@ -104,7 +99,7 @@ const GiftCard = ({ title, description, price, id, wishListId }: GiftCard) => {
             <div className="w-full lg:w-1/2 flex flex-col h-full justify-evenly gap-6 lg:gap-0">
               <div>
                 <h1 className="text-primaryTextColor text-3xl font-medium">
-                  {title}
+                  {name}
                 </h1>
                 <p className="text-secondaryTextColor text-lg">{description}</p>
               </div>

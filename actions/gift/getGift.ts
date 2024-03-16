@@ -1,4 +1,4 @@
-import prisma from "@/db/client";
+import prisma from '@/db/client';
 
 export type GiftParams = {
   category?: string;
@@ -9,8 +9,6 @@ export async function getGift({ searchParams }: { searchParams?: GiftParams }) {
     let query: any = {};
     const { category } = searchParams ?? {};
 
-    //console.log("category id:", category)
-
     if (category) {
       query.categoryId = category;
     }
@@ -18,11 +16,9 @@ export async function getGift({ searchParams }: { searchParams?: GiftParams }) {
     const gifts = await prisma.gift.findMany({
       where: query,
       orderBy: {
-        createdAt: "desc",
+        createdAt: 'desc',
       },
     });
-
-    /* console.log("Gifts from database:", gifts) */
 
     if (!gifts) return null;
 
