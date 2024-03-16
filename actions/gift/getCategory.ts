@@ -1,13 +1,8 @@
-import prisma from "@/app/utils/db";
-
-type CategoryParams = {
-  giftId?: string;
-};
+import prisma from "@/db/client";
 
 export async function getCategory() {
   try {
     const category = await prisma.category.findMany();
-    //console.log("Gift categories from database:", category)
 
     if (!category) return null;
 

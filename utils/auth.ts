@@ -3,7 +3,7 @@ import GoogleProvider from "next-auth/providers/google";
 import FacebookProvider from "next-auth/providers/facebook";
 import EmailProvider from "next-auth/providers/email";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
-import prisma from "./db";
+import prisma from "../db/client";
 import { User } from "next-auth";
 
 /* interface MyUser extends User {

@@ -1,13 +1,8 @@
-import prisma from "@/app/utils/db";
-
-type GiftListsParams = {
-  giftListId?: string;
-};
+import prisma from '@/db/client';
 
 export async function getGiftLists() {
   try {
     const giftLists = await prisma.giftList.findMany();
-    //console.log("Gift Lists from database:", giftLists)
 
     if (!giftLists) return null;
 

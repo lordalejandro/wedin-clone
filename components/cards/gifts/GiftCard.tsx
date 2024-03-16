@@ -1,44 +1,63 @@
-"use client";
+'use client';
 
-import React from "react";
-import Button from "../../Button";
-import { IoAdd } from "react-icons/io5";
-import { FaCheck } from "react-icons/fa";
-import {
-  Dialog,
-  DialogContent,
-  DialogTrigger,
-  DialogClose,
-} from "@/components/ui/dialog";
-import { Switch } from "@/components/ui/switch";
+import Button from '@/components/Button';
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "@/components/ui/carousel";
-import { useToast } from "@/components/ui/use-toast";
+} from '@/components/ui/carousel';
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogTrigger,
+} from '@/components/ui/dialog';
+import { Switch } from '@/components/ui/switch';
+import { useToast } from '@/components/ui/use-toast';
+import { Gift } from '@prisma/client';
+import { FaCheck } from 'react-icons/fa';
+import { IoAdd } from 'react-icons/io5';
 
-type GiftCard = {
-  img: string;
-  title: string;
-  description: string;
-  price: string;
-  id: string;
+type GiftCardProps = {
+  gift: Gift;
 };
 
-const GiftCard = ({ title, description, price }: GiftCard) => {
+const GiftCard = ({ gift }: GiftCardProps) => {
   const { toast } = useToast();
+  const { name, description, price, id, wishListId } = gift;
 
-  const addGiftToWishList = () => {
-    toast({
-      title: "Regalo añadido",
-      description: "El regalo ha sido añadido a tu lista de deseos.",
-      action: <FaCheck color="green" fontSize={"36px"} />,
-      className: "!bg-white",
-      //position: "top",
-    });
+  const addGiftToWishListHandler = async () => {
+    try {
+      const response = await fetch(`/api/wishList/${wishListId}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          giftId: id,
+        }),
+      });
+
+      if (response.ok) {
+        toast({
+          title: 'Success',
+          description: 'Gift added to your wishlist.',
+          action: <FaCheck color="green" fontSize={'36px'} />,
+        });
+      } else {
+        throw new Error('Failed to add gift to wishlist'); // Handle non-2xx responses
+      }
+    } catch (error) {
+      console.error(error);
+      toast({
+        title: 'Error',
+        description: 'Failed to add gift to wishlist.',
+        action: <FaCheck color="red" fontSize={'36px'} />,
+        className: 'bg-white',
+      });
+    }
   };
 
   return (
@@ -48,7 +67,7 @@ const GiftCard = ({ title, description, price }: GiftCard) => {
       </div>
 
       <div className="flex flex-col gap-1 w-full">
-        <h1 className="text-primaryTitleColor font-medium text-lg">{title}</h1>
+        <h1 className="text-primaryTitleColor font-medium text-lg">{name}</h1>
 
         <p className="text-secondaryTextColor">{description}</p>
         <span className="text-secondaryTitleColor text-xl">Gs. {price}</span>
@@ -80,7 +99,7 @@ const GiftCard = ({ title, description, price }: GiftCard) => {
             <div className="w-full lg:w-1/2 flex flex-col h-full justify-evenly gap-6 lg:gap-0">
               <div>
                 <h1 className="text-primaryTextColor text-3xl font-medium">
-                  {title}
+                  {name}
                 </h1>
                 <p className="text-secondaryTextColor text-lg">{description}</p>
               </div>
@@ -95,7 +114,7 @@ const GiftCard = ({ title, description, price }: GiftCard) => {
                   <Switch id="group-gift" />
                 </div>
                 <span className="text-3xl text-secondaryTitleColor font-medium">
-                  {" "}
+                  {' '}
                   Gs. {price}
                 </span>
               </div>
@@ -104,7 +123,7 @@ const GiftCard = ({ title, description, price }: GiftCard) => {
                 <Button
                   label="Añadir a mi lista"
                   icon={IoAdd}
-                  onClick={addGiftToWishList}
+                  onClick={addGiftToWishListHandler}
                 />
               </DialogClose>
             </div>

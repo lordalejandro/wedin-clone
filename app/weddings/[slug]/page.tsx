@@ -1,4 +1,4 @@
-import Container from "@/app/components/Container";
+import Container from '@/components/Container';
 
 export default function Wedding({ params }: { params: { slug: string } }) {
   const { slug } = params;

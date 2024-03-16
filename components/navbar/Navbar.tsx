@@ -1,9 +1,9 @@
 "use client";
 
 import { User } from "@prisma/client";
-import Container from "@/app/components/Container";
+import Container from "@/components/Container";
 import Logo from "./Logo";
-import UserMenu from "@/app/components/navbar/UserMenu";
+import UserMenu from "@/components/navbar/UserMenu";
 import { Inter } from "next/font/google";
 import { usePathname } from "next/navigation";
 

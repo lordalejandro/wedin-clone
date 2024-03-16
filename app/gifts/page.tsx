@@ -1,25 +1,19 @@
-import React from "react";
-import { getCurrentUser } from "@/app/actions/getCurrentUser";
-import Container from "@/app/components/Container";
-import PredefinedGiftListCard from "@/app/components/modals/gifts/PredefinedGiftListCard";
-import EmptyState from "@/app/components/EmptyState";
-import { IoGiftOutline } from "react-icons/io5";
-import { PiCouchLight } from "react-icons/pi";
-import { IoAdd } from "react-icons/io5";
-import { getGiftLists } from "@/app/actions/getGiftLists";
-import { getGift, GiftParams } from "@/app/actions/getGift";
-import { getCategory } from "@/app/actions/getCategory";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import GiftCard from "../components/modals/gifts/GiftCard";
-import Categories from "./Categories";
+import { getCategory } from '@/actions/gift/getCategory';
+import { getGift, GiftParams } from '@/actions/gift/getGift';
+import { getGiftLists } from '@/actions/giftLists/getGiftLists';
+import GiftCard from '@/components/cards/gifts/GiftCard';
+import PredefinedGiftListCard from '@/components/cards/gifts/PredefinedGiftListCard';
+import Container from '@/components/Container';
+import EmptyState from '@/components/EmptyState';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { IoAdd, IoGiftOutline } from 'react-icons/io5';
+import { PiCouchLight } from 'react-icons/pi';
+import Categories from './Categories';
 
 const GiftsPage = async ({ searchParams }: { searchParams: GiftParams }) => {
-  const currentUser = await getCurrentUser();
   const giftLists = await getGiftLists();
   const gifts = await getGift({ searchParams });
   const categories = await getCategory();
-
-  //console.log(gifts);
 
   if (giftLists?.length === 0) return <EmptyState showReset />;
   if (gifts?.length === 0) return <EmptyState showReset />;
@@ -27,7 +21,7 @@ const GiftsPage = async ({ searchParams }: { searchParams: GiftParams }) => {
   return (
     <Container>
       <div className="min-h-screen flex flex-col justify-center">
-        <h1 className="text-4xl sm:text-5xl font-medium text-primaryTextColor px-10 mt-12 sm:mt-18">
+        <h1 className="text-4xl sm:text-5xl font-medium text-primaryTextColor px-10 mt-12 sm:mt-16">
           Créa tu lista de regalos
         </h1>
 
@@ -56,15 +50,10 @@ const GiftsPage = async ({ searchParams }: { searchParams: GiftParams }) => {
             </p>
             <div className="flex justify-center items-center">
               <div className="px-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 3xl:grid-cols-6 gap-8">
-                {giftLists?.map((giftList) => (
+                {giftLists?.map(giftList => (
                   <PredefinedGiftListCard
                     key={giftList.id}
-                    title={giftList.name}
-                    description={giftList.description}
-                    img={""}
-                    price={giftList.totalPrice}
-                    id={giftList.id}
-                    items={giftList.quantity}
+                    giftList={giftList}
                   />
                 ))}
               </div>
@@ -79,16 +68,7 @@ const GiftsPage = async ({ searchParams }: { searchParams: GiftParams }) => {
 
             <div className="flex justify-center items-center">
               <div className="px-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 3xl:grid-cols-5 gap-8">
-                {gifts?.map((gift) => (
-                  <GiftCard
-                    key={gift.id}
-                    img={""}
-                    title={gift.name}
-                    description={gift.description}
-                    price={gift.price}
-                    id={gift.id}
-                  />
-                ))}
+                {gifts?.map(gift => <GiftCard key={gift.id} gift={gift} />)}
               </div>
             </div>
           </TabsContent>
