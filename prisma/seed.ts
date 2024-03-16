@@ -1,16 +1,18 @@
 const { PrismaClient } = require('@prisma/client');
 const prismaClient = new PrismaClient();
 
+type UserMapType = {
+  [email: string]: any;
+};
+
 async function main() {
-  const categoryData = seedData.categories;
-  const listsData = seedData.lists;
+  const categoriesData = seedData.categories;
+  const giftListsData = seedData.giftList;
   const giftsData = seedData.gifts;
   const usersData = seedData.users;
-  const weddingsData = seedData.weddings;
-  const wishListsData = seedData.wishLists;
 
   try {
-    for (const category of categoryData) {
+    for (const category of categoriesData) {
       await prismaClient.category.create({
         data: {
           name: category.name,
@@ -18,7 +20,7 @@ async function main() {
       });
     }
 
-    for (const list of listsData) {
+    for (const list of giftListsData) {
       await prismaClient.giftList.create({
         data: {
           name: list.name,
@@ -31,39 +33,41 @@ async function main() {
     }
 
     for (const gift of giftsData) {
-      const categoryId = categoryData.find(category => {
+      const categoryData = categoriesData.find(category => {
         return category['id'] === gift.categoryId;
       });
 
-      const giftListId = listsData.find(list => {
+      const giftListData = giftListsData.find(list => {
         return list['id'] === gift.giftListId;
       });
 
-      if (categoryId === null || categoryId === undefined) {
-        console.error(`Category with ID ${gift.categoryId} not found`);
-        return;
-      }
-      if (categoryId['name'] === null || categoryId['name'] === undefined) {
+      if (categoryData === undefined) {
         console.error(`Category with ID ${gift.categoryId} not found`);
         return;
       }
 
-      if (giftListId === null || giftListId === undefined) {
-        console.error(`Gift List with ID ${gift.giftListId} not found`);
-        return;
-      }
-      if (giftListId['name'] === null || giftListId['name'] === undefined) {
+      if (giftListData === undefined) {
         console.error(`Gift List with ID ${gift.giftListId} not found`);
         return;
       }
 
       const category = await prismaClient.category.findFirst({
-        where: { name: categoryId['name'] },
+        where: { name: categoryData['name'] },
       });
 
       const giftList = await prismaClient.giftList.findFirst({
-        where: { name: giftListId['name'] },
+        where: { name: giftListData['name'] },
       });
+
+      if (category === null) {
+        console.error(`Category with ID ${gift.categoryId} not found in db`);
+        return;
+      }
+
+      if (giftList === null) {
+        console.error(`Gift List with ID ${gift.giftListId} not found in db`);
+        return;
+      }
 
       await prismaClient.gift.create({
         data: {
@@ -77,34 +81,42 @@ async function main() {
       });
     }
 
-    let createdUsers = [];
+    let usersMap: UserMapType = {};
     for (const user of usersData) {
       const createdUser = await prismaClient.user.create({
-        data: {
-          name: user.name,
-          email: user.email,
-          user_types: 'COUPLE',
-        },
+        data: user,
       });
-      createdUsers.push(createdUser);
+      usersMap[user.email] = createdUser;
     }
 
-    const weddingData = weddingsData[0];
-    const wedding = await prismaClient.wedding.create({
-      data: {
-        date: new Date(weddingData.date),
-        location: weddingData.location,
-      },
-    });
+    for (const wedding of seedData.weddings) {
+      const bride = usersMap[seedData.users[0].email];
+      const groom = usersMap[seedData.users[1].email];
 
-    const wishListData = wishListsData[0];
-    const wishList = await prismaClient.wishList.create({
-      data: {
-        item: wishListData.name,
-        description: 'A sample wishlist description',
-        weddingId: wedding.id,
-      },
-    });
+      const createdWedding = await prismaClient.wedding.create({
+        data: {
+          url: wedding.url,
+          date: new Date(wedding.date),
+          location: wedding.location,
+          brideId: bride.id,
+          groomId: groom.id,
+        },
+      });
+
+      const wishlist = await prismaClient.wishList.create({
+        data: {
+          description: seedData.wishLists[0].description,
+          weddingId: createdWedding.id,
+        },
+      });
+
+      await prismaClient.wedding.update({
+        where: { id: createdWedding.id },
+        data: {
+          wishListId: wishlist.id,
+        },
+      });
+    }
 
     console.log('Data seeded successfully!');
   } catch (error) {

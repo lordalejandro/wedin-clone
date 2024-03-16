@@ -21,7 +21,7 @@ const seedData = {
       name: 'Relax',
     },
   ],
-  lists: [
+  giftList: [
     {
       id: 1,
       name: 'Luna de miel grande',
@@ -359,15 +359,14 @@ const seedData = {
   ],
   weddings: [
     {
-      coupleNames: 'Musk & Cuban',
+      url: 'Musk-&-Cuban',
       date: '2024-06-01',
       location: 'Dreamy Venue',
     },
   ],
   wishLists: [
     {
-      name: 'Our Dreamy Wedding',
-      weddingId: 1,
+      description: 'Our Dreamy Wedding',
     },
   ],
 };
