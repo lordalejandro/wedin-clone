@@ -42,10 +42,9 @@ const GiftCard = ({ title, description, price, id, wishListId }: GiftCard) => {
         },
         body: JSON.stringify({
           giftId: id,
-          wishListId: wishListId,
         }),
       });
-  
+
       if (response.ok) {
         toast({
           title: 'Success',
@@ -57,7 +56,6 @@ const GiftCard = ({ title, description, price, id, wishListId }: GiftCard) => {
       }
     } catch (error) {
       console.error(error);
-      // Display error toast
       toast({
         title: 'Error',
         description: 'Failed to add gift to wishlist.',
@@ -66,7 +64,6 @@ const GiftCard = ({ title, description, price, id, wishListId }: GiftCard) => {
       });
     }
   };
-  
 
   return (
     <div className="border-2 rounded-xl py-6 px-4 flex flex-col gap-5 max-w-[435px]">
