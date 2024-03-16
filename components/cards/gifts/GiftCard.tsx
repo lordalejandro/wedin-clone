@@ -19,7 +19,7 @@ import {
   CarouselPrevious,
 } from '@/components/ui/carousel';
 import { useToast } from '@/components/ui/use-toast';
-import addGiftToWishlist from '@/actions/wishList/addGiftToWishList';
+//import addGiftToWishlist from '@/actions/wishList/addGiftToWishList';
 
 type GiftCard = {
   img: string;
@@ -35,16 +35,29 @@ const GiftCard = ({ title, description, price, id, wishListId }: GiftCard) => {
 
   const addGiftToWishListHandler = async () => {
     try {
-      const result = await addGiftToWishlist(id, wishListId);
-      /* if (result.ok) {
+      const response = await fetch(`/api/wishList/${wishListId}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          giftId: id,
+          wishListId: wishListId,
+        }),
+      });
+  
+      if (response.ok) {
         toast({
           title: 'Success',
           description: 'Gift added to your wishlist.',
           action: <FaCheck color="green" fontSize={'36px'} />,
         });
-      } */
+      } else {
+        throw new Error('Failed to add gift to wishlist'); // Handle non-2xx responses
+      }
     } catch (error) {
       console.error(error);
+      // Display error toast
       toast({
         title: 'Error',
         description: 'Failed to add gift to wishlist.',
@@ -53,6 +66,7 @@ const GiftCard = ({ title, description, price, id, wishListId }: GiftCard) => {
       });
     }
   };
+  
 
   return (
     <div className="border-2 rounded-xl py-6 px-4 flex flex-col gap-5 max-w-[435px]">
@@ -117,7 +131,7 @@ const GiftCard = ({ title, description, price, id, wishListId }: GiftCard) => {
                 <Button
                   label="Añadir a mi lista"
                   icon={IoAdd}
-                  onClick={() => addGiftToWishlist(id, wishListId)}
+                  onClick={addGiftToWishListHandler}
                 />
               </DialogClose>
             </div>
