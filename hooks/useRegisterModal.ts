@@ -1,15 +1,15 @@
-import { create } from "zustand";
+import { create } from 'zustand';
 
-interface LoginModalState {
+interface RegisterModalState {
   isOpen: boolean;
   open: () => void;
   close: () => void;
 }
 
-const useLoginModal = create<LoginModalState>((set) => ({
+const useRegisterModal = create<RegisterModalState>(set => ({
   isOpen: false,
   open: () => set({ isOpen: true }),
   close: () => set({ isOpen: false }),
 }));
 
-export default useLoginModal;
+export default useRegisterModal;

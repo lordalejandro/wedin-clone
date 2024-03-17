@@ -1,4 +1,4 @@
-import prisma from "@/db/client";
+import prisma from '@/db/client';
 
 export async function getCategories() {
   try {
@@ -9,6 +9,7 @@ export async function getCategories() {
     return category;
   } catch (error: any) {
     console.log(error);
+    // Maybe throw an error here?
     return null;
   }
 }

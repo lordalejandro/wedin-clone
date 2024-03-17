@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import SingInFacebook from "@/components/signin/SignInFacebook";
-import SingInGoogle from "@/components/signin/SignInGoogle";
-import SignInForm from "@/components/signin/SignInForm";
+import SingInFacebook from '@/components/signin/SignInFacebook';
+import SingInGoogle from '@/components/signin/SignInGoogle';
+import SignInForm from '@/components/signin/SignInForm';
 
 const RegisterRight = () => {
   return (
@@ -24,7 +24,7 @@ const RegisterRight = () => {
       </div>
 
       <p className="text-center text-secondaryTextColor">
-        Ya tenés una cuenta?{" "}
+        Ya tenés una cuenta?{' '}
         <a href="#" className="text-indigo-600 hover:underline">
           Ingresá aquí
         </a>

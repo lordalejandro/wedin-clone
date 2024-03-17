@@ -1,4 +1,4 @@
-import { create } from "zustand";
+import { create } from 'zustand';
 
 interface FilterModalState {
   isOpen: boolean;
@@ -6,7 +6,7 @@ interface FilterModalState {
   close: () => void;
 }
 
-const useFilterModal = create<FilterModalState>((set) => ({
+const useFilterModal = create<FilterModalState>(set => ({
   isOpen: false,
   open: () => set({ isOpen: true }),
   close: () => set({ isOpen: false }),

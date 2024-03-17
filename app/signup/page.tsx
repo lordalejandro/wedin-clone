@@ -3,9 +3,9 @@
 // import { getServerSession } from "next-auth";
 // import { authOptions } from "../utils/auth";
 // import { redirect } from "next/navigation";
-import Logo from "./Logo";
-import RegisterRight from "./RegisterRight";
-import RegisterLeft from "./RegisterLeft";
+import Logo from './Logo';
+import RegisterRight from './RegisterRight';
+import RegisterLeft from './RegisterLeft';
 
 const SingUpPage = async () => {
   //const [isLoading, setIsLoading] = useState(false);

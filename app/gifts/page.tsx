@@ -1,6 +1,6 @@
 import { getCurrentUser } from '@/actions/getCurrentUser';
 import { getCategories } from '@/actions/gift/getCategory';
-import { getGift, GiftParams } from '@/actions/gift/getGift';
+import { getGift as getGifts, GiftParams } from '@/actions/gift/getGift';
 import { getGiftLists } from '@/actions/giftLists/getGiftLists';
 import { getWeddingByUserId } from '@/actions/weddings/getWeddingByUserId';
 import { getWishListByWeddingId } from '@/actions/wishList/getWishListByWeddingId';
@@ -15,7 +15,7 @@ import Categories from './Categories';
 
 const GiftsPage = async ({ searchParams }: { searchParams: GiftParams }) => {
   const giftLists = await getGiftLists();
-  const gifts = await getGift({ searchParams });
+  const gifts = await getGifts({ searchParams });
   const categories = await getCategories();
   const currentUser = await getCurrentUser();
   const wedding = await getWeddingByUserId(currentUser?.id);

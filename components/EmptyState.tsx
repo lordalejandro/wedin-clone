@@ -3,7 +3,7 @@
 import { useRouter } from 'next/navigation';
 import { FC } from 'react';
 
-import { Button } from '@/components/ui/button';
+import Button from './Button';
 import Heading from './Heading';
 
 type Props = {
@@ -24,9 +24,11 @@ const EmptyState: FC<Props> = ({
       <Heading center title={title} subtitle={subtitle} />
       <div className="w-48 mt-4">
         {showReset && (
-          <Button variant="outline" onClick={() => router.push('/')}>
-            Volver al inicio
-          </Button>
+          <Button
+            outline
+            label="Go to home page"
+            onClick={() => router.push('/')}
+          />
         )}
       </div>
     </div>

@@ -1,13 +1,13 @@
-"use client";
+'use client';
 
-import { Button } from "@/components/ui/button";
-import { signIn } from "next-auth/react";
+import { Button } from '@/components/ui/button';
+import { signIn } from 'next-auth/react';
 
 export default function SingInGoogle() {
   return (
     <Button
       onClick={() =>
-        signIn("google", {
+        signIn('google', {
           callbackUrl: `${window.location.origin}/gifts`,
         })
       }
