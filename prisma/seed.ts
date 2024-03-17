@@ -1,4 +1,5 @@
-const { PrismaClient } = require('@prisma/client');
+// const { PrismaClient } = require('@prisma/client');
+import { PrismaClient } from '@prisma/client';
 const prismaClient = new PrismaClient();
 
 type UserMapType = {
@@ -20,14 +21,14 @@ async function main() {
       });
     }
 
-    for (const list of giftListsData) {
+    for (const giftList of giftListsData) {
       await prismaClient.giftList.create({
         data: {
-          name: list.name,
-          description: list.description,
-          isDefault: list.isDefault,
-          quantity: list.quantity,
-          totalPrice: list.totalPrice,
+          name: giftList.name,
+          description: giftList.description,
+          isDefault: giftList.isDefault,
+          quantity: giftList.quantity,
+          totalPrice: giftList.totalPrice,
         },
       });
     }
