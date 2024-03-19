@@ -1,6 +1,6 @@
-import Container from "@/components/Container";
-import { redirect } from "next/navigation";
-import { getCurrentUser } from "@/actions/getCurrentUser";
+import Container from '@/components/Container';
+import { redirect } from 'next/navigation';
+import { getCurrentUser } from '@/actions/getCurrentUser';
 
 type Props = {
   params: {
@@ -16,7 +16,7 @@ export default async function Home({ params }: Props) {
   // home page
   //
   if (!currentUser) {
-    redirect("/");
+    redirect('/');
   }
 
   const { listId } = params;

@@ -1,13 +1,13 @@
-"use client";
+'use client';
 
-import { User } from "@prisma/client";
-import Container from "@/components/Container";
-import Logo from "./Logo";
-import UserMenu from "@/components/navbar/UserMenu";
-import { Inter } from "next/font/google";
-import { usePathname } from "next/navigation";
+import { User } from '@prisma/client';
+import Container from '@/components/Container';
+import Logo from './Logo';
+import UserMenu from '@/components/navbar/UserMenu';
+import { Inter } from 'next/font/google';
+import { usePathname } from 'next/navigation';
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ['latin'] });
 
 type NavBarProps = {
   currentUser?: User | null;
@@ -16,7 +16,7 @@ type NavBarProps = {
 export const NavBar = ({ currentUser }: NavBarProps) => {
   const pathname = usePathname();
 
-  if (pathname.includes("/signup")) {
+  if (pathname.includes('/signup')) {
     return <></>;
   }
 

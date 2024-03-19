@@ -1,4 +1,4 @@
-import { create } from "zustand";
+import { create } from 'zustand';
 
 interface RegisterModalState {
   isOpen: boolean;
@@ -6,7 +6,7 @@ interface RegisterModalState {
   close: () => void;
 }
 
-const useRegisterModal = create<RegisterModalState>((set) => ({
+const useRegisterModal = create<RegisterModalState>(set => ({
   isOpen: false,
   open: () => set({ isOpen: true }),
   close: () => set({ isOpen: false }),

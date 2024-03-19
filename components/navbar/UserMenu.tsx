@@ -1,17 +1,17 @@
-"use client";
+'use client';
 
-import useLoginModal from "@/app/hooks/useLoginModal";
-import useOutsideClick from "@/app/hooks/useOutsideClick";
-import useRegisterModal from "@/app/hooks/useRegisterModal";
-import { User } from "@prisma/client";
-import Link from "next/link";
-import { signOut } from "next-auth/react";
-import { useRouter } from "next/navigation";
-import { useCallback, useRef, useState } from "react";
-import { IoIosArrowDown } from "react-icons/io";
+import useLoginModal from '@/app/hooks/useLoginModal';
+import useOutsideClick from '@/app/hooks/useOutsideClick';
+import useRegisterModal from '@/app/hooks/useRegisterModal';
+import { User } from '@prisma/client';
+import { signOut } from 'next-auth/react';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { useCallback, useRef, useState } from 'react';
+import { IoIosArrowDown } from 'react-icons/io';
 
-import Avatar from "../Avatar";
-import MenuItem from "../MenuItem";
+import Avatar from '../Avatar';
+import MenuItem from '../MenuItem';
 
 type UserMenuProps = {
   currentUser?: User | null;
@@ -50,7 +50,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
       {currentUser ? (
         <div className="flex flex-row items-center gap-4">
           <div className="hidden md:block text-sm">
-            {currentUser?.name ? `Hola ${currentUser?.name}` : ""}
+            {currentUser?.name ? `Hola ${currentUser?.name}` : ''}
           </div>
           <div
             className="p-4 md:py-1 md:px-2 border-[1px] border-neutral-200 flex flex-row items-center gap-3 rounded-full cursor-pointer hover:shadow-md transition"
@@ -77,19 +77,19 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
             {currentUser ? (
               <>
                 <MenuItem
-                  onClick={() => handleClick("/trips")}
+                  onClick={() => handleClick('/trips')}
                   label="Mis regalos"
                 />
                 <MenuItem
-                  onClick={() => handleClick("/favourites")}
+                  onClick={() => handleClick('/favourites')}
                   label="Mis invitados"
                 />
                 <MenuItem
-                  onClick={() => handleClick("/reservations")}
+                  onClick={() => handleClick('/reservations')}
                   label="My Reservtions"
                 />
                 <MenuItem
-                  onClick={() => handleClick("/properties")}
+                  onClick={() => handleClick('/properties')}
                   label="My properties"
                 />
                 <hr />

@@ -1,6 +1,6 @@
-import prisma from "@/db/client";
+import prisma from '@/db/client';
 
-export async function getCategory() {
+export async function getCategories() {
   try {
     const category = await prisma.category.findMany();
 
@@ -9,6 +9,7 @@ export async function getCategory() {
     return category;
   } catch (error: any) {
     console.log(error);
+    // Maybe throw an error here?
     return null;
   }
 }

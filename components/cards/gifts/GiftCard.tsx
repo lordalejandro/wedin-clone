@@ -22,11 +22,12 @@ import { Button } from '@/components/ui/button';
 
 type GiftCardProps = {
   gift: Gift;
+  wishListId?: string;
 };
 
-const GiftCard = ({ gift }: GiftCardProps) => {
+const GiftCard = ({ gift, wishListId }: GiftCardProps) => {
   const { toast } = useToast();
-  const { name, description, price, id, wishListId } = gift;
+  const { name, description, price, id } = gift;
 
   const addGiftToWishListHandler = async () => {
     try {

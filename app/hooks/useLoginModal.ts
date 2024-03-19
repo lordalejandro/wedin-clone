@@ -1,4 +1,4 @@
-import { create } from "zustand";
+import { create } from 'zustand';
 
 interface LoginModalState {
   isOpen: boolean;
@@ -6,7 +6,7 @@ interface LoginModalState {
   close: () => void;
 }
 
-const useLoginModal = create<LoginModalState>((set) => ({
+const useLoginModal = create<LoginModalState>(set => ({
   isOpen: false,
   open: () => set({ isOpen: true }),
   close: () => set({ isOpen: false }),

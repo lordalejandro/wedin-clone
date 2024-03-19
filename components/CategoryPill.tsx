@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { useRouter, useSearchParams } from "next/navigation";
-import qs from "query-string";
-import { useCallback } from "react";
+import { useRouter, useSearchParams } from 'next/navigation';
+import qs from 'query-string';
+import { useCallback } from 'react';
 
 type CategoryPillProps = {
   key: string;
@@ -27,13 +27,13 @@ const CategoryPill: React.FC<CategoryPillProps> = ({ selected, label, id }) => {
       category: id,
     };
 
-    if (params?.get("category") === id) {
-      updatedQuery.category = "";
+    if (params?.get('category') === id) {
+      updatedQuery.category = '';
     }
 
     const url = qs.stringifyUrl(
       {
-        url: "/gifts",
+        url: '/gifts',
         query: updatedQuery,
       },
       { skipNull: true, skipEmptyString: true }
@@ -57,9 +57,9 @@ const CategoryPill: React.FC<CategoryPillProps> = ({ selected, label, id }) => {
         hover:text-white
         break-normal
         ${
-          selected ? "bg-primaryBackgroundColor" : "border-secondaryBorderColor"
+          selected ? 'bg-primaryBackgroundColor' : 'border-secondaryBorderColor'
         }
-        ${selected ? "text-white" : "text-primaryTextColor"}
+        ${selected ? 'text-white' : 'text-primaryTextColor'}
       `}
     >
       {label}
