@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { IoMdClose } from 'react-icons/io';
-import Button from '../Button';
+// import Button from '../Button';
 
 type Props = {
   actionLabel?: string;
@@ -100,7 +100,7 @@ const Modal: React.FC<Props> = ({
             {/* BODY */}
 
             {/* FOOTER */}
-            <div className="flex flex-col gap-2 p-6">
+            {/* <div className="flex flex-col gap-2 p-6">
               <div className="flex flex-row items-center gap-4 w-full">
                 {secondaryAction && secondaryActionLabel ? (
                   <Button
@@ -117,7 +117,7 @@ const Modal: React.FC<Props> = ({
                 />
               </div>
               {footer}
-            </div>
+            </div> */}
             {/* FOOTER */}
           </div>
         </div>
