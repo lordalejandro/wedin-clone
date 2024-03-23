@@ -63,16 +63,25 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
           </div>
         </div>
       ) : (
-        <Link
-          href="/signup"
-          className="bg-primaryBackgroundColor text-white py-2 rounded-full px-5 hover:shadow-lg transition-all shadow-black"
-        >
-          Registrarme
-        </Link>
+        <div className='flex gap-4 items-center'>
+          <Link
+            href="/login"
+            className="bg-primaryBackgroundColor text-white py-2 rounded-full px-5 hover:shadow-lg transition-all shadow-black"
+          >
+            Login
+          </Link>
+          <Link
+            href="/register"
+            className="bg-primaryBackgroundColor text-white py-2 rounded-full px-5 hover:shadow-lg transition-all shadow-black"
+          >
+            Registrarme
+          </Link>
+
+        </div>
       )}
 
       {isOpen && (
-        <div className="absolute rounded-xl shadow-md w-[40vw] md:w-3/4 bg-white overflow-hidden right-0 top-12 text-sm">
+        <div className="absolute rounded-xl shadow-md w-[40vw] md:w-4/5 bg-white overflow-hidden right-0 top-12 text-sm">
           <div className="flex flex-col cursor-pointer">
             {currentUser ? (
               <>

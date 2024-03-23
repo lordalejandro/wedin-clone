@@ -3,17 +3,18 @@
 import SingInFacebook from '@/components/signin/SignInFacebook';
 import SingInGoogle from '@/components/signin/SignInGoogle';
 import SignInForm from '@/components/signin/SignInForm';
+import Link from 'next/link';
 
 const RegisterRight = () => {
   return (
     <div className="w-full max-w-md p-0 lg:p-8 space-y-6 bg-white text-black">
       <p className="text-2xl text-center font-semibold text-primaryTextColor">
-        Registrate en 1 minuto y creá tu lista de regalos
+        Ingresá a tu lista
       </p>
 
       <SignInForm />
 
-      <div className="flex flex-col items-center justify-between">
+      <div className="flex flex-col items-center justify-between py-4">
         <span className="w-1/2 border-b border" />
       </div>
 
@@ -23,12 +24,13 @@ const RegisterRight = () => {
         <SingInGoogle />
       </div>
 
-      <p className="text-center text-secondaryTextColor">
-        Ya tenés una cuenta?{' '}
-        <a href="#" className="text-indigo-600 hover:underline">
-          Ingresá aquí
-        </a>
-      </p>
+      <Link
+        href="/register"
+        className="flex items-center justify-center text-secondaryTextColor"
+      >
+        No tenes una cuenta?&nbsp;
+        <span className="text-indigo-600 hover:underline">Registrate aquí</span>
+      </Link>
     </div>
   );
 };

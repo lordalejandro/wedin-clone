@@ -18,6 +18,7 @@ const GiftsPage = async ({ searchParams }: { searchParams: GiftParams }) => {
   const gifts = await getGifts({ searchParams });
   const categories = await getCategories();
   const currentUser = await getCurrentUser();
+  //console.log(currentUser);
   const wedding = await getWeddingByUserId(currentUser?.id);
   const wishList = await getWishListByWeddingId(wedding?.id);
 
@@ -79,6 +80,7 @@ const GiftsPage = async ({ searchParams }: { searchParams: GiftParams }) => {
                     key={gift.id}
                     gift={gift}
                     wishListId={wishList?.id}
+                    currentUser={currentUser}
                   />
                 ))}
               </div>

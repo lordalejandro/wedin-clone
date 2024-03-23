@@ -38,14 +38,14 @@ export default function SignInForm() {
     <form className="flex flex-col gap-4" action={SignInEmail}>
       <div className="grid w-full items-center gap-3">
         <Label htmlFor="email" className="pl-1 text-secondaryTextColor">
-          Ingresa tu email
+          Email
         </Label>
         <Input
           onChange={e => setEmail(e.target.value)}
           name="email"
           type="email"
           id="email"
-          placeholder="Email"
+          placeholder="example@wedin.app"
           className="border"
         />
       </div>
@@ -54,7 +54,7 @@ export default function SignInForm() {
         type="submit"
         className="bg-primaryBackgroundColor w-full text-white py-2.5 rounded-lg hover:shadow-lg transition-all shadow-black"
       >
-        Registrarme
+        Iniciar sesión
       </Button>
     </form>
   );

@@ -21,15 +21,25 @@ import { IoAdd } from 'react-icons/io5';
 import { Button } from '@/components/ui/button';
 
 type GiftCardProps = {
-  gift: Gift;
-  wishListId?: string;
+  gift: Gift
+  wishListId?: string
+  currentUser?: Object
 };
 
-const GiftCard = ({ gift, wishListId }: GiftCardProps) => {
+const GiftCard = ({ gift, wishListId, currentUser }: GiftCardProps) => {
   const { toast } = useToast();
   const { name, description, price, id } = gift;
 
   const addGiftToWishListHandler = async () => {
+    if (!currentUser) {
+      toast({
+        title: 'Authentication Required',
+        description: 'You need to be logged in or registered to add a gift to your wishlist.',
+        action: <FaCheck color="red" fontSize={'36px'} />,
+        className: 'bg-white',
+      });
+      return;
+    }
     try {
       const response = await fetch(`/api/wishList/${wishListId}`, {
         method: 'POST',
@@ -46,9 +56,10 @@ const GiftCard = ({ gift, wishListId }: GiftCardProps) => {
           title: 'Success',
           description: 'Gift added to your wishlist.',
           action: <FaCheck color="green" fontSize={'36px'} />,
+          className: 'bg-white'
         });
       } else {
-        throw new Error('Failed to add gift to wishlist'); // Handle non-2xx responses
+        throw new Error('Failed to add gift to wishlist');
       }
     } catch (error) {
       console.error(error);
