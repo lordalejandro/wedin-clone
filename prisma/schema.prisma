@@ -79,6 +79,7 @@ model Wedding {
   @@unique([brideId, groomId])
 }
 
+// create a wedding and wishlist for the user after finishing onboarding
 model WishList {
   id          String   @id @default(auto()) @map("_id") @db.ObjectId
   weddingId   String   @db.ObjectId
