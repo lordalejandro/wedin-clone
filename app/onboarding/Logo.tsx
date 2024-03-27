@@ -9,10 +9,10 @@ const Logo = () => {
   return (
     <Image
       alt="logo"
-      onClick={() => router.push('/')}
+      //onClick={() => router.push('/gifts')}
       className="cursor-pointer"
-      height="39"
-      width="90"
+      height="62"
+      width="132"
       src="/images/wedin.svg"
     />
   );

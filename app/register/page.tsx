@@ -2,9 +2,9 @@ import Logo from './Logo';
 import RegisterRight from './RegisterRight';
 import RegisterLeft from './RegisterLeft';
 
-const RegisterPage = async () => {
+const RegisterPage = () => {
   return (
-    <div className="flex flex-col items-center justify-center min-h-[82vh] text-black gap-16 px-10">
+    <div className="flex flex-col items-center justify-center min-h-[82vh] text-black gap-8 sm:gap-16 px-4 sm:px-10">
       <div>
         <Logo />
       </div>

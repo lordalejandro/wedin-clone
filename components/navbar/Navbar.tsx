@@ -16,7 +16,7 @@ type NavBarProps = {
 export const NavBar = ({ currentUser }: NavBarProps) => {
   const pathname = usePathname();
 
-  if (pathname.includes('/login') || pathname.includes('/register')) {
+  if (pathname.includes('/login') || pathname.includes('/register') || pathname.includes('/onboarding') ) {
     return <></>;
   }
 

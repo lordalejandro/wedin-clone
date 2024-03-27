@@ -51,8 +51,8 @@ export default function SignInForm() {
       </div>
 
       <Button
-        type="submit"
-        className="bg-primaryBackgroundColor w-full text-white py-2.5 rounded-lg hover:shadow-lg transition-all shadow-black"
+        variant="primaryButton"
+        className="rounded-lg"
       >
         Iniciar sesión
       </Button>

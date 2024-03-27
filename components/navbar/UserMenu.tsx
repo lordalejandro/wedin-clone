@@ -66,13 +66,13 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
         <div className='flex gap-4 items-center'>
           <Link
             href="/login"
-            className="bg-primaryBackgroundColor text-white py-2 rounded-full px-5 hover:shadow-lg transition-all shadow-black"
+            className="bg-primaryBackgroundColor text-white py-1.5 rounded-full px-5 hover:shadow-lg transition-all shadow-black"
           >
             Login
           </Link>
           <Link
             href="/register"
-            className="bg-primaryBackgroundColor text-white py-2 rounded-full px-5 hover:shadow-lg transition-all shadow-black"
+            className="bg-primaryBackgroundColor text-white py-1.5 rounded-full px-5 hover:shadow-lg transition-all shadow-black"
           >
             Registrarme
           </Link>

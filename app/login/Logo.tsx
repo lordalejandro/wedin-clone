@@ -13,7 +13,7 @@ const Logo = () => {
       className="cursor-pointer"
       height="62"
       width="132"
-      src="/images/wedin.png"
+      src="/images/wedin.svg"
     />
   );
 };

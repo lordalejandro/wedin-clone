@@ -19,7 +19,7 @@ const RegisterRight = () => {
       </div>
 
       <div className="flex flex-col items-center justify-center gap-2">
-        <span className="text-secondaryTextColor">O registate con</span>
+        <span className="text-secondaryTextColor">O inicia sesión con</span>
         <SingInFacebook />
         <SingInGoogle />
       </div>
