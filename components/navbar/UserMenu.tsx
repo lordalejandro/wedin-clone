@@ -57,7 +57,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
             onClick={toggleOpen}
           >
             <div className="hidden md:block">
-              <Avatar src={currentUser?.image} />
+              <Avatar src={currentUser?.imageUrl} />
             </div>
             <IoIosArrowDown size={18} />
           </div>
