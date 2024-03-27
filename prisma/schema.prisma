@@ -48,8 +48,8 @@ model User {
   name          String?
   email         String?   @unique
   emailVerified DateTime?
-  image         String?
-  user_types    UserType  @default(COUPLE)
+  imageUrl      String?
+  userType    UserType  @default(COUPLE)
 
   accounts        Account[]
   sessions        Session[]

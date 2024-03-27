@@ -7,7 +7,7 @@ import prisma from '../db/client';
 import { User } from 'next-auth';
 
 /* interface MyUser extends User {
-    user_types: string; // or the appropriate type for user_types
+    userType: string; // or the appropriate type for userType
 } */
 
 export const authOptions = {
@@ -38,7 +38,7 @@ export const authOptions = {
   /* callbacks: {
         async session({ session, user }) {
             const myUser = user as unknown as MyUser;
-            (session.user as MyUser).user_types = myUser.user_types;
+            (session.user as MyUser).userType = myUser.userType;
             return session;
         },
     } */

@@ -23,7 +23,7 @@ import { Button } from '@/components/ui/button';
 type GiftCardProps = {
   gift: Gift
   wishListId?: string
-  currentUser?: Object
+  currentUser?: Object | null
 };
 
 const GiftCard = ({ gift, wishListId, currentUser }: GiftCardProps) => {
