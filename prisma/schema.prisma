@@ -46,6 +46,7 @@ model Session {
 model User {
   id            String    @id @default(auto()) @map("_id") @db.ObjectId
   name          String?
+  lastName      String?
   email         String?   @unique
   emailVerified DateTime?
   imageUrl      String?
@@ -59,14 +60,17 @@ model User {
 
 model Wedding {
   id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  name       String?
   brideId    String   @db.ObjectId
   groomId    String   @db.ObjectId
-  date       DateTime
+  date       DateTime?
   location   String
   url        String   @unique
   wishListId String?  @unique @db.ObjectId
   createdAt  DateTime @default(now())
   updatedAt  DateTime @updatedAt
+  country    String?
+  city       String?
 
   wishList WishList? @relation(fields: [wishListId], references: [id])
   bride    User?     @relation("Bride", fields: [brideId], references: [id])
